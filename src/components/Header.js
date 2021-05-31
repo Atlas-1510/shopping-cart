@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { IconContext } from "react-icons";
-import { HiShoppingCart } from "react-icons/hi";
+import { FaShoppingCart } from "react-icons/fa";
 import { MdExpandMore } from "react-icons/md";
 
 const StyledHeader = styled.header`
@@ -24,7 +24,7 @@ const NavBar = styled.nav`
   justify-self: end;
   font-family: Helvetica;
   font-weight: 600;
-  margin: 0.5rem 1rem;
+  margin-right: 2rem;
 `;
 
 const List = styled.ul`
@@ -34,7 +34,7 @@ const List = styled.ul`
 `;
 
 const NavItem = styled.li`
-  margin: 0rem 1rem;
+  margin: 0rem 0.5rem;
   display: flex;
   align-items: center;
   position: relative;
@@ -42,6 +42,11 @@ const NavItem = styled.li`
 
 const ExpandIconStyles = {
   marginLeft: "0.2rem",
+  position: "relative",
+  transform: "translate(0px, -1px)",
+};
+
+const ShoppingCartIconStyles = {
   position: "relative",
   transform: "translate(0px, -1px)",
 };
@@ -60,7 +65,9 @@ function Header(props) {
             </IconContext.Provider>
           </NavItem>
           <NavItem>
-            <HiShoppingCart />
+            <IconContext.Provider value={{ size: "1.1rem" }}>
+              <FaShoppingCart style={ShoppingCartIconStyles} />
+            </IconContext.Provider>
           </NavItem>
         </List>
       </NavBar>
