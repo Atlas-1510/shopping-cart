@@ -3,7 +3,7 @@ import styled, { keyframes } from "styled-components";
 
 const Container = styled.div`
   width: 100%;
-  height: inherit;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -33,15 +33,25 @@ const ImageHolder = styled.div`
   background-image: ${(props) => `url(${props.img})`};
   background-position: center center;
   background-repeat: no-repeat;
-  background-size: 100%;
+  background-size: cover;
   width: 100%;
   height: 100%;
   animation: ${(props) => props.animation} 4s linear 1 forwards;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `;
 
-const Bigtext = styled.span``;
+const BigText = styled.span`
+  font-family: Tungsten;
+  font-weight: 600;
+  color: white;
+  font-size: 10rem;
+`;
+
 function CarouselItem(props) {
-  const { animationStart, visible, img, index, z } = props.displayItem;
+  const { animationStart, visible, img, index, z, bigText } = props.displayItem;
   return (
     <Container visible={visible} index={index} z={z}>
       <ImageHolder
@@ -50,7 +60,9 @@ function CarouselItem(props) {
         onAnimationEnd={() => {
           props.cycleCarousel(index);
         }}
-      />
+      >
+        <BigText>{bigText}</BigText>
+      </ImageHolder>
     </Container>
   );
 }

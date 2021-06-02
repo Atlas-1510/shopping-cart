@@ -9,7 +9,7 @@ import Shirt from "../img/carouselImages/Carousel3.jpg";
 
 const Container = styled.div`
   width: 100%;
-  height: 80vh;
+  height: 70vh;
   ${"" /* flex-grow: 1; */}
   background: ${(props) => props.appStyles.primaryColor};
   position: relative;
@@ -22,12 +22,14 @@ function Carousel(props) {
       img: { Glasses },
       visible: true,
       animationStart: true,
+      bigText: "SPRING CLASSICS SALE",
       z: 3,
     },
     {
       index: 1,
       img: { Forest },
       visible: true,
+      bigText: "WINTER BUNDLES",
       animationStart: false,
       z: 2,
     },
@@ -35,6 +37,7 @@ function Carousel(props) {
       index: 2,
       img: { Shirt },
       visible: false,
+      bigText: "JERSEY & VEST BUNDLES ",
       animationStart: false,
       z: 1,
     },
