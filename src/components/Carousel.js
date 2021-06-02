@@ -22,21 +22,21 @@ function Carousel(props) {
       img: { Glasses },
       visible: true,
       animationStart: true,
-      z: 100000,
+      z: 3,
     },
     {
       index: 1,
       img: { Forest },
       visible: true,
       animationStart: false,
-      z: 99999,
+      z: 2,
     },
     {
       index: 2,
       img: { Shirt },
       visible: false,
       animationStart: false,
-      z: 99998,
+      z: 1,
     },
   ]);
 
@@ -45,6 +45,7 @@ function Carousel(props) {
     let next = current === carouselElements.length - 1 ? 0 : current + 1;
     let newCarousel = [...carouselElements];
     newCarousel.map((element) => {
+      element.z = element.z + carouselElements.length;
       if (element.index === previous) {
         element.visible = false;
         element.animationStart = false;

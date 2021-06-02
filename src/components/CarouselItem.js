@@ -4,8 +4,6 @@ import styled, { keyframes } from "styled-components";
 const Container = styled.div`
   width: 100%;
   height: inherit;
-  ${"" /* width: 300px; */}
-  ${"" /* height: 300px; */}
   display: flex;
   justify-content: center;
   align-items: center;
@@ -40,6 +38,8 @@ const ImageHolder = styled.div`
   height: 100%;
   animation: ${(props) => props.animation} 4s linear 1 forwards;
 `;
+
+const Bigtext = styled.span``;
 function CarouselItem(props) {
   const { animationStart, visible, img, index, z } = props.displayItem;
   return (
@@ -51,6 +51,7 @@ function CarouselItem(props) {
           props.cycleCarousel(index);
         }}
       />
+      <div></div>
     </Container>
   );
 }
