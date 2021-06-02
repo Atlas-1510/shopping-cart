@@ -51,7 +51,6 @@ function CarouselItem(props) {
           props.cycleCarousel(index);
         }}
       />
-      <div></div>
     </Container>
   );
 }
