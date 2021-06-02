@@ -18,7 +18,7 @@ function App() {
   return (
     <AppContainer>
       <Header appStyles={appStyles} />
-      <Carousel></Carousel>
+      <Carousel appStyles={appStyles} />
     </AppContainer>
   );
 }

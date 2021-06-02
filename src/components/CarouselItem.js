@@ -4,36 +4,51 @@ import styled, { keyframes } from "styled-components";
 const Container = styled.div`
   width: 100%;
   height: inherit;
+  ${"" /* width: 300px; */}
+  ${"" /* height: 300px; */}
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
+  position: absolute;
+  opacity: ${(props) => (props.visible ? 1 : 0)};
+  transition: opacity 0.5s;
+  z-index: ${(props) => props.z};
 `;
 
 const zoomAnimation = keyframes`
 0% {
     background-size: 100%;
+    opacity: 1
+}
+
+90% {
+  opacity: 1
 }
 100% {
     background-size: 105%;
+    opacity: 0
 }
 `;
 
 const ImageHolder = styled.div`
-  background-image: ${(props) => `url(${props.src})`};
+  background-image: ${(props) => `url(${props.img})`};
   background-position: center center;
+  background-repeat: no-repeat;
+  background-size: 100%;
   width: 100%;
   height: 100%;
-  animation: ${zoomAnimation} 4s linear 1 forwards;
+  animation: ${(props) => props.animation} 4s linear 1 forwards;
 `;
-
 function CarouselItem(props) {
+  const { animationStart, visible, img, index, z } = props.displayItem;
   return (
-    <Container>
+    <Container visible={visible} index={index} z={z}>
       <ImageHolder
-        src={Object.values(props.displayItem.img)[0]}
+        animation={animationStart ? zoomAnimation : "none"}
+        img={Object.values(img)[0]}
         onAnimationEnd={() => {
-          props.cycleCarousel(props.displayItem.index);
+          props.cycleCarousel(index);
         }}
       />
     </Container>
