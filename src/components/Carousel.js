@@ -1,84 +1,78 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useTransition } from "@react-spring/web";
 import styled from "styled-components";
-import CarouselItem from "./CarouselItem";
+import CarouselSlide from "./CarouselSlide";
+import Image1 from "../img/carouselImages/Carousel1.jpg";
+import Image2 from "../img/carouselImages/Carousel2.jpg";
+import Image3 from "../img/carouselImages/Carousel3.jpg";
 
-//Carousel images
-import Glasses from "../img/carouselImages/Carousel1.jpg";
-import Forest from "../img/carouselImages/Carousel2.jpg";
-import Shirt from "../img/carouselImages/Carousel3.jpg";
+const CarouselContainer = styled.div`
+  height: 100%;
+  display: flex;
+  display-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: lightyellow;
+`;
 
-const Container = styled.div`
+const Carousel = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   height: 70vh;
-  ${"" /* flex-grow: 1; */}
-  background: ${(props) => props.appStyles.primaryColor};
+  overflow: hidden;
   position: relative;
 `;
 
-function Carousel(props) {
-  const [carouselElements, setCarouselElements] = useState([
-    {
-      index: 0,
-      img: { Glasses },
-      visible: true,
-      animationStart: true,
-      bigText: "SPRING CLASSICS SALE",
-      z: 3,
-    },
-    {
-      index: 1,
-      img: { Forest },
-      visible: true,
-      bigText: "WINTER BUNDLES",
-      animationStart: false,
-      z: 2,
-    },
-    {
-      index: 2,
-      img: { Shirt },
-      visible: false,
-      bigText: "JERSEY & VEST BUNDLES ",
-      animationStart: false,
-      z: 1,
-    },
-  ]);
+const duration = 8000;
 
-  const cycleCarousel = (previous) => {
-    let current = previous === carouselElements.length - 1 ? 0 : previous + 1;
-    let next = current === carouselElements.length - 1 ? 0 : current + 1;
-    let newCarousel = [...carouselElements];
-    newCarousel.map((element) => {
-      element.z = element.z + carouselElements.length;
-      if (element.index === previous) {
-        element.visible = false;
-        element.animationStart = false;
-        element.z = carouselElements[next].z - 1;
-      } else if (element.index === current) {
-        element.visible = true;
-        element.animationStart = true;
-      } else if (element.index === next) {
-        element.visible = true;
-        element.animationStart = false;
-      } else {
-        element.visible = false;
-        element.animationStart = false;
-      }
-    });
-    setCarouselElements(newCarousel);
-  };
+const slideInformation = [
+  {
+    src: Image1,
+    bigText: "SPRING CLASSICS SALE",
+    littleText: "30% off Spring Classics Jerseys.",
+  },
+  {
+    src: Image2,
+    bigText: "WINTER BUNDLES",
+    littleText: "Stay warm, stay strong with the Winter Bundles.",
+  },
+  {
+    src: Image3,
+    bigText: "JERSEY & VEST BUNDLES",
+    littleText:
+      "As the weather gets cooler, bundle up with a vest and jersey combo.",
+  },
+];
+
+export default function App() {
+  const [index, set] = useState(0);
+  useEffect(() => {
+    const t = setInterval(() => {
+      set((state) => (state + 1) % slideInformation.length);
+    }, duration - 500);
+    return () => clearTimeout(t);
+  }, []);
+  const transitions = useTransition(index, {
+    from: { opacity: 0 },
+    enter: { opacity: 1 },
+    leave: { opacity: 0 },
+    config: { duration: 1000 },
+  });
   return (
-    <Container appStyles={props.appStyles}>
-      {carouselElements.map((slide) => {
-        return (
-          <CarouselItem
-            displayItem={slide}
-            cycleCarousel={cycleCarousel}
-            key={slide.index}
-          />
-        );
-      })}
-    </Container>
+    <CarouselContainer>
+      <Carousel>
+        {transitions((style, i) => {
+          return (
+            <CarouselSlide
+              style={style}
+              slide={slideInformation[i]}
+              duration={duration}
+            />
+          );
+        })}
+      </Carousel>
+    </CarouselContainer>
   );
 }
-
-export default Carousel;
