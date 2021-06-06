@@ -6,7 +6,7 @@ const StyledButton = styled(animated.button)`
   display: inline-block;
   border-radius: 3px;
   padding: 0.5rem 0;
-  margin: 1rem 1rem;
+  margin: 1.5rem 1rem;
   width: 11rem;
   background: rgba(255, 255, 255, 0);
   color: white;

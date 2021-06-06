@@ -41,7 +41,7 @@ const LittleText = styled.span`
   text-align: center;
 
   @media only screen and (min-width: 900px) {
-    font-size: 1.7rem;
+    font-size: 1.5rem;
   }
 `;
 
