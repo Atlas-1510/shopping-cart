@@ -14,7 +14,6 @@ const CarouselContainer = styled.div`
   display-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: lightyellow;
 `;
 
 const Carousel = styled.div`
