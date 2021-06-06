@@ -1,6 +1,7 @@
 import React from "react";
 import { animated, useSpring } from "@react-spring/web";
 import styled from "styled-components";
+import Button from "./Button";
 
 const SlideContainer = styled(animated.div)`
   height: 100%;
@@ -13,7 +14,8 @@ const SlideContainer = styled(animated.div)`
 `;
 
 const ImageContainer = styled(animated.img)`
-  width: 100%;
+  min-height: 100%;
+  min-width: 100%;
   position: absolute;
 `;
 
@@ -33,13 +35,13 @@ const BigText = styled.span`
 const LittleText = styled.span`
   font-family: Helvetica;
   color: white;
-  font-size: 1rem;
+  font-size: 1.2rem;
   font-weight: 300;
   z-index: 10;
   text-align: center;
 
   @media only screen and (min-width: 900px) {
-    font-size: 1.5;
+    font-size: 1.7rem;
   }
 `;
 
@@ -64,6 +66,7 @@ const CarouselSlide = ({ style, slide, duration }) => {
       />
       <BigText>{slide.bigText}</BigText>
       <LittleText>{slide.littleText}</LittleText>
+      <Button label="SHOP NOW" />
     </SlideContainer>
   );
 };
