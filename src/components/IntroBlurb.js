@@ -1,9 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 import logo from "../img/logo-white.svg";
+import { useSpring, animated } from "react-spring";
+import { useInView } from "react-intersection-observer";
 
-const Container = styled.div`
-  background: black;
+const Container = styled(animated.div)`
+  ${"" /* background: black; */}
+  background: ${(props) => (props.inView ? "green" : "black")};
   color: white;
   display: flex;
   flex-direction: column;
@@ -34,8 +37,19 @@ const LittleText = styled.div`
 `;
 
 function IntroBlurb() {
+  const { ref, inView } = useInView({
+    threshold: 0.5,
+  });
+  const fade = useSpring({
+    from: {
+      opacity: 0,
+    },
+    to: {
+      opacity: inView ? 1 : 0,
+    },
+  });
   return (
-    <Container>
+    <Container ref={ref} inView={inView} style={{ opacity: fade.opacity }}>
       <Logo src={logo} alt="Shop logo" />
       <BigText>
         WE ROLL DEEP.
