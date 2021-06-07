@@ -2,13 +2,21 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { useSpring, animated } from "react-spring";
 
-const Container = styled.div`
+const Container = styled(animated.div)`
   width: 20rem;
   height: 25rem;
   display: grid;
   grid-template-rows: 80% 10% 10%;
   grid-template-columns: auto;
   grid-template-areas: "image" "category" "title";
+  box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0);
+  transition: box-shadow 0.3s;
+  margin: 2rem;
+  cursor: pointer;
+
+  &:hover {
+    box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.5);
+  }
 `;
 
 const ImageContainer = styled.div`
@@ -34,7 +42,6 @@ const Category = styled.span`
   margin: 0.5rem;
   color: #1e73be;
   font-size: 1rem;
-  z-index: 2;
 `;
 
 const Title = styled.span`
@@ -43,29 +50,28 @@ const Title = styled.span`
   color: "black";
   font-size: 1.5rem;
   font-family: Tungsten;
-  z-index: 2;
 `;
 
 function ShopTile({ item }) {
-  const [mouseInside, toggle] = useState(false);
-  const animation = useSpring({
+  const [mouseInsideImage, toggle] = useState(false);
+  const imageAnimation = useSpring({
     from: {
       opacity: 0,
     },
     to: {
-      opacity: mouseInside ? 0 : 1,
+      opacity: mouseInsideImage ? 0 : 1,
     },
   });
   return (
     <Container>
       <ImageContainer
-        onMouseEnter={() => toggle(!mouseInside)}
-        onMouseLeave={() => toggle(!mouseInside)}
+        onMouseEnter={() => toggle(!mouseInsideImage)}
+        onMouseLeave={() => toggle(!mouseInsideImage)}
       >
         <ImagePrimary
           src={item.primaryImage}
           style={{
-            opacity: animation.opacity,
+            opacity: imageAnimation.opacity,
           }}
         />
         <ImageSecondary src={item.secondaryImage} />

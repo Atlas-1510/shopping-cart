@@ -8,6 +8,7 @@ const Button = styled(animated.button)`
   padding: 0.5rem 1rem;
   margin: 1rem;
   font-size: 1rem;
+  cursor: pointer;
 `;
 
 function ButtonTwo({ label }) {
