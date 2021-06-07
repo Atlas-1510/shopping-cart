@@ -1,8 +1,9 @@
 import React from "react";
 import styled from "styled-components";
-import logo from "../img/logo-white.svg";
 import { useSpring, animated } from "react-spring";
 import { useInView } from "react-intersection-observer";
+import logo from "../img/logo-white.svg";
+import ButtonTwo from "./ButtonTwo";
 
 const Container = styled.div`
   width: 100%;
@@ -19,9 +20,11 @@ const TextContent = styled(animated.div)`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: relative;
+  padding: 2rem;
 `;
 
-const Logo = styled.img`
+const Logo = styled(animated.img)`
   width: 4rem;
   margin: 2rem;
 `;
@@ -36,7 +39,7 @@ const BigText = styled.h2`
 
 const LittleText = styled.div`
   columns: 20rem;
-  margin: 2rem;
+  margin: 1rem;
   max-width: 59rem;
   font-size: 1.2rem;
   line-height: 1.5;
@@ -45,7 +48,7 @@ const LittleText = styled.div`
 
 function IntroBlurb() {
   const { ref, inView } = useInView({
-    threshold: 0.5,
+    threshold: 0.3,
   });
   const fade = useSpring({
     from: {
@@ -81,6 +84,7 @@ function IntroBlurb() {
           stigma, starting conversations and empowering people to develop
           wellbeing and resilience in overcoming life’s challenges.
         </LittleText>
+        <ButtonTwo label="ABOUT US" />
       </TextContent>
     </Container>
   );
