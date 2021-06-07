@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Header from "./components/Header";
 import Carousel from "./components/Carousel";
+import IntroBlurb from "./components/IntroBlurb";
 
 const appStyles = {
   primaryColor: "rgb(252, 252, 252)",
@@ -19,6 +20,7 @@ function App() {
     <AppContainer>
       <Header appStyles={appStyles} />
       <Carousel appStyles={appStyles} />
+      <IntroBlurb />
     </AppContainer>
   );
 }
