@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Header from "./components/Header";
 import Carousel from "./components/Carousel";
 import IntroBlurb from "./components/IntroBlurb";
+import ShopPreview from "./components/ShopPreview";
 
 const appStyles = {
   primaryColor: "rgb(252, 252, 252)",
@@ -21,6 +22,7 @@ function App() {
       <Header appStyles={appStyles} />
       <Carousel appStyles={appStyles} />
       <IntroBlurb />
+      <ShopPreview />
     </AppContainer>
   );
 }

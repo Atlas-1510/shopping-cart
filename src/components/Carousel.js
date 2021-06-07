@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 import { useSpring, useTransition, animated } from "@react-spring/web";
 import styled from "styled-components";
 import CarouselSlide from "./CarouselSlide";
-import Image1 from "../img/carouselImages/Carousel1.jpg";
-import Image2 from "../img/carouselImages/Carousel2.jpg";
-import Image3 from "../img/carouselImages/Carousel3.jpg";
+import Image1 from "../img/carousel/Carousel1.jpg";
+import Image2 from "../img/carousel/Carousel2.jpg";
+import Image3 from "../img/carousel/Carousel3.jpg";
 
 const duration = 8000;
 
