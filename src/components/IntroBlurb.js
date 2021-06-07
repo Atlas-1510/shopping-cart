@@ -4,11 +4,18 @@ import logo from "../img/logo-white.svg";
 import { useSpring, animated } from "react-spring";
 import { useInView } from "react-intersection-observer";
 
-const Container = styled(animated.div)`
-  ${"" /* background: black; */}
-  background: ${(props) => (props.inView ? "green" : "black")};
-  color: white;
+const Container = styled.div`
+  width: 100%;
+  background: black;
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+
+const TextContent = styled(animated.div)`
+  display: flex;
+  color: white;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -49,30 +56,32 @@ function IntroBlurb() {
     },
   });
   return (
-    <Container ref={ref} inView={inView} style={{ opacity: fade.opacity }}>
-      <Logo src={logo} alt="Shop logo" />
-      <BigText>
-        WE ROLL DEEP.
-        <br></br>
-        <br></br>
-        WE ROLL FOR BODY. WE ROLL FOR MIND.
-        <br></br>WE ROLL FOR OURSELVES. WE ROLL FOR OTHERS.
-        <br></br>WE ROLL TOGETHER. WE ROLL APART.
-        <br></br>BUT WHEN WE ROLL, WE KNOW
-        <br></br>WE’RE NEVER ALONE.
-      </BigText>
-      <LittleText>
-        Knights of Suburbia are a community of women and men with a passion for
-        cycling—whether it be crit racing, commuting or coffee shop rolling. We
-        cycle for physical and mental health, for the sense of community, for
-        adventure and most importantly, for fun.
-        <br></br>
-        <br></br>
-        But what unites us is our mission and sense of purpose: to change the
-        culture around mental health by raising awareness, stopping the stigma,
-        starting conversations and empowering people to develop wellbeing and
-        resilience in overcoming life’s challenges.
-      </LittleText>
+    <Container ref={ref}>
+      <TextContent style={{ opacity: fade.opacity }}>
+        <Logo src={logo} alt="Shop logo" />
+        <BigText>
+          WE ROLL DEEP.
+          <br></br>
+          <br></br>
+          WE ROLL FOR BODY. WE ROLL FOR MIND.
+          <br></br>WE ROLL FOR OURSELVES. WE ROLL FOR OTHERS.
+          <br></br>WE ROLL TOGETHER. WE ROLL APART.
+          <br></br>BUT WHEN WE ROLL, WE KNOW
+          <br></br>WE’RE NEVER ALONE.
+        </BigText>
+        <LittleText>
+          Knights of Suburbia are a community of women and men with a passion
+          for cycling—whether it be crit racing, commuting or coffee shop
+          rolling. We cycle for physical and mental health, for the sense of
+          community, for adventure and most importantly, for fun.
+          <br></br>
+          <br></br>
+          But what unites us is our mission and sense of purpose: to change the
+          culture around mental health by raising awareness, stopping the
+          stigma, starting conversations and empowering people to develop
+          wellbeing and resilience in overcoming life’s challenges.
+        </LittleText>
+      </TextContent>
     </Container>
   );
 }
