@@ -5,6 +5,12 @@ import camo1 from "../img/shop/Knights-Of-Suburbia-LS-Jersey-Green-Camo-Male-3Q-
 import camo2 from "../img/shop/Knights-Of-Suburbia-LS-Jersey-Green-Camo-Female-3Q-600x600.jpg";
 import race1 from "../img/shop/Knights-Of-Suburbia-Jersey-Race-2-Male-3QL-600x600.jpg";
 import race2 from "../img/shop/Knights-Of-Suburbia-Jersey-Race-2-Male-F-600x600.jpg";
+import never1 from "../img/shop/Knights-Of-Suburbia-Jersey-Never-Alone-Male-3QL-600x600.jpg";
+import never2 from "../img/shop/Knights-Of-Suburbia-Jersey-Never-Alone-Male-F-600x600.jpg";
+import yap1 from "../img/shop/Knights-Of-Suburbia-LS-Jersey-Yapa-Male-3Q-600x600.jpg";
+import yap2 from "../img/shop/Knights-Of-Suburbia-LS-Jersey-Yapa-Male-R-600x600.jpg";
+import sunrise1 from "../img/shop/Knights-Of-Suburbia-Jersey-Sunrise-Male-3QL-600x600.jpg";
+import sunrise2 from "../img/shop/Knights-Of-Suburbia-Jersey-Sunrise-Male-F-600x600.jpg";
 
 const shopItems = [
   {
@@ -19,6 +25,24 @@ const shopItems = [
     primaryImage: race1,
     secondaryImage: race2,
   },
+  {
+    category: "Jerseys",
+    title: "NEVER ALONE JERSEY",
+    primaryImage: never1,
+    secondaryImage: never2,
+  },
+  {
+    category: "Jerseys",
+    title: "YAPAMEYEPUKA LONG SLEEVE JERSEY",
+    primaryImage: yap1,
+    secondaryImage: yap2,
+  },
+  {
+    category: "Jerseys",
+    title: "SUNRISE JERSEY",
+    primaryImage: sunrise1,
+    secondaryImage: sunrise2,
+  },
 ];
 
 const Container = styled.div`
@@ -28,10 +52,26 @@ const Container = styled.div`
   align-items: center;
 `;
 
+const Grid = styled.div`
+  display: grid;
+  justify-items: center;
+  grid-template-columns: repeat(2, minmax(150px, 1fr));
+  @media (min-width: 751px) and (max-width: 1024px) {
+    grid-template-columns: repeat(3, minmax(150px, 1fr));
+  }
+  @media (min-width: 1025px) {
+    grid-template-columns: repeat(3, minmax(150px, 450px));
+  }
+`;
+
 function ShopPreview() {
   return (
     <Container>
-      <ShopTile item={shopItems[0]} />
+      <Grid>
+        {shopItems.map((item) => (
+          <ShopTile item={item} />
+        ))}
+      </Grid>
     </Container>
   );
 }

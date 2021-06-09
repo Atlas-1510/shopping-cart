@@ -3,12 +3,13 @@ import styled from "styled-components";
 import { useSpring, animated } from "react-spring";
 
 const Container = styled(animated.div)`
-  width: 20rem;
-  height: 25rem;
-  display: grid;
-  grid-template-rows: 80% 10% 10%;
-  grid-template-columns: auto;
-  grid-template-areas: "image" "category" "title";
+  display: flex;
+  ${"" /* max-width: 400px; */}
+  ${"" /* min-width: 0px; */}
+  ${"" /* max-width: 25rem; */}
+  ${"" /* min-width: 10rem; */}
+  flex-direction: column;
+  align-items: center;
   box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0);
   transition: box-shadow 0.3s;
   margin: 2rem;
@@ -20,8 +21,7 @@ const Container = styled(animated.div)`
 `;
 
 const ImageContainer = styled.div`
-  width: 100%;
-  grid-area: image;
+  display: inline-block;
   position: relative;
 `;
 
@@ -33,11 +33,9 @@ const ImagePrimary = styled(animated.img)`
 
 const ImageSecondary = styled.img`
   width: 100%;
-  position: absolute;
 `;
 
 const Category = styled.span`
-  grid-area: category;
   justify-self: center;
   margin: 0.5rem;
   color: #1e73be;
@@ -45,7 +43,6 @@ const Category = styled.span`
 `;
 
 const Title = styled.span`
-  grid-area: title;
   justify-self: center;
   color: "black";
   font-size: 1.5rem;
