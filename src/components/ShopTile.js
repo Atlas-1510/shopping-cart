@@ -4,10 +4,6 @@ import { useSpring, animated } from "react-spring";
 
 const Container = styled(animated.div)`
   display: flex;
-  ${"" /* max-width: 400px; */}
-  ${"" /* min-width: 0px; */}
-  ${"" /* max-width: 25rem; */}
-  ${"" /* min-width: 10rem; */}
   flex-direction: column;
   align-items: center;
   box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0);
@@ -40,6 +36,7 @@ const Category = styled.span`
   margin: 0.5rem;
   color: #1e73be;
   font-size: 1rem;
+  text-align: center;
 `;
 
 const Title = styled.span`
@@ -47,6 +44,7 @@ const Title = styled.span`
   color: "black";
   font-size: 1.5rem;
   font-family: Tungsten;
+  text-align: center;
 `;
 
 function ShopTile({ item }) {
