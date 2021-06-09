@@ -3,24 +3,31 @@ import styled from "styled-components";
 import { useSpring, animated } from "react-spring";
 
 const Button = styled(animated.button)`
-  background: #ff356b;
+  background: ${(props) => props.primaryColor};
   border: none;
   padding: 0.5rem 1rem;
   margin: 1rem;
-  font-size: 1rem;
+  font-size: 1.2rem;
+  font-family: Tungsten;
   cursor: pointer;
 `;
 
-function ButtonTwo({ label }) {
+function ButtonTwo({
+  label,
+  primaryColor,
+  secondaryColor,
+  primaryTextColor,
+  secondaryTextColor,
+}) {
   const [mouseInside, toggle] = useState(false);
   const spring = useSpring({
     from: {
-      bgColor: "#ff356b",
-      textColor: "white",
+      bgColor: primaryColor,
+      textColor: primaryTextColor,
     },
     to: {
-      bgColor: mouseInside ? "white" : "#ff356b",
-      textColor: mouseInside ? "black" : "white",
+      bgColor: mouseInside ? secondaryColor : primaryColor,
+      textColor: mouseInside ? secondaryTextColor : primaryTextColor,
     },
   });
   return (

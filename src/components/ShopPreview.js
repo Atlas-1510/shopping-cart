@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import ShopTile from "./ShopTile";
+import ButtonTwo from "./ButtonTwo";
 import camo1 from "../img/shop/Knights-Of-Suburbia-LS-Jersey-Green-Camo-Male-3Q-600x600.jpg";
 import camo2 from "../img/shop/Knights-Of-Suburbia-LS-Jersey-Green-Camo-Female-3Q-600x600.jpg";
 import race1 from "../img/shop/Knights-Of-Suburbia-Jersey-Race-2-Male-3QL-600x600.jpg";
@@ -64,14 +65,40 @@ const Grid = styled.div`
   }
 `;
 
+const Title = styled.h2`
+  font-family: Tungsten;
+  color: #ff356b;
+  font-size: 3rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+`;
+
+const SubTitle = styled.span`
+  font-size: 1.3rem;
+  line-height: 1.5;
+  font-weight: lighter;
+`;
+
 function ShopPreview() {
   return (
     <Container>
+      <Title>SHOP GEAR</Title>
+      <SubTitle>
+        $10 from every jersey sale goes to support the work of the Love Me Love
+        You Foundation.
+      </SubTitle>
       <Grid>
         {shopItems.map((item) => (
           <ShopTile item={item} />
         ))}
       </Grid>
+      <ButtonTwo
+        label="SHOP GEAR"
+        primaryColor="black"
+        secondaryColor="#ff356b"
+        primaryTextColor="white"
+        secondaryTextColor="black"
+      ></ButtonTwo>
     </Container>
   );
 }

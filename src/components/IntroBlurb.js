@@ -84,7 +84,13 @@ function IntroBlurb() {
           stigma, starting conversations and empowering people to develop
           wellbeing and resilience in overcoming life’s challenges.
         </LittleText>
-        <ButtonTwo label="ABOUT US" />
+        <ButtonTwo
+          label="ABOUT US"
+          primaryColor="#ff356b"
+          secondaryColor="white"
+          primaryTextColor="white"
+          secondaryTextColor="black"
+        />
       </TextContent>
     </Container>
   );
