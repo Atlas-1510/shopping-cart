@@ -1,5 +1,15 @@
 import React from "react";
 import styled from "styled-components";
+import jerseys from "../img/categories/jerseys.jpg";
+import accessories from "../img/categories/accessories.jpg";
+import baselayers from "../img/categories/baselayers.jpg";
+import bibs from "../img/categories/bibs.jpg";
+import caps from "../img/categories/caps.jpg";
+import casual from "../img/categories/casual.jpg";
+import jackets from "../img/categories/jackets.jpg";
+import socks from "../img/categories/socks.jpg";
+import vests from "../img/categories/vests.jpg";
+import warmers from "../img/categories/warmers.jpg";
 
 const Container = styled.div`
   background: black;
@@ -28,6 +38,49 @@ const PlaceHolder = styled.div`
   width: 100%;
   height: 25rem;
 `;
+
+const categories = [
+  {
+    title: "jerseys",
+    image: jerseys,
+  },
+  {
+    title: "bibs",
+    image: bibs,
+  },
+  {
+    title: "vests",
+    image: vests,
+  },
+  {
+    title: "jackets",
+    image: jackets,
+  },
+  {
+    title: "baselayers",
+    image: baselayers,
+  },
+  {
+    title: "socks",
+    image: socks,
+  },
+  {
+    title: "warmers",
+    image: warmers,
+  },
+  {
+    title: "caps",
+    image: caps,
+  },
+  {
+    title: "accessories",
+    image: accessories,
+  },
+  {
+    title: "casual",
+    image: casual,
+  },
+];
 
 function Shop() {
   return (
