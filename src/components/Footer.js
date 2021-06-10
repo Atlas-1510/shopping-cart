@@ -1,11 +1,13 @@
 import React from "react";
 import styled from "styled-components";
+import { AiFillGithub } from "react-icons/ai";
+import { IconContext } from "react-icons";
 
 const Container = styled.div`
   background: black;
   padding: 0 1rem;
   display: flex;
-  align-items: baseline;
+  align-items: center;
   justify-content: space-between;
 `;
 
@@ -15,6 +17,13 @@ const Logo = styled.h2`
   color: white;
 `;
 
+const Link = styled.a`
+  cursor: pointer;
+  &:hover {
+    color: #ff356b;
+  }
+`;
+
 const LinkContainer = styled.div`
   display: flex;
   width: 20rem;
@@ -22,18 +31,21 @@ const LinkContainer = styled.div`
   justify-content: space-around;
   color: white;
 `;
-const MediaContainer = styled.div``;
 
 function Footer() {
   return (
     <Container>
       <Logo>CYCLING SHOP</Logo>
       <LinkContainer>
-        <span>About</span>
-        <span>Shop</span>
-        <span>Contact</span>
+        <Link>About</Link>
+        <Link>Shop</Link>
+        <Link>Contact</Link>
       </LinkContainer>
-      <MediaContainer></MediaContainer>
+      <Link href="https://github.com/Atlas-1510/shopping-cart">
+        <IconContext.Provider value={{ color: "white", size: "3rem" }}>
+          <AiFillGithub />
+        </IconContext.Provider>
+      </Link>
     </Container>
   );
 }
