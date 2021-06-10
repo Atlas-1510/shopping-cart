@@ -7,6 +7,7 @@ import Header from "./components/Header";
 // import IntroBlurb from "./components/IntroBlurb";
 // import ShopPreview from "./components/ShopPreview";
 import Home from "./components/Home";
+import About from "./components/About";
 import Footer from "./components/Footer";
 import Shop from "./components/Shop";
 
@@ -33,6 +34,7 @@ function App() {
             render={(appStyles) => <Home appStyles={appStyles} />}
           />
           <Route exact path="/shop" component={Shop} />
+          <Route exact path="/about" component={About} />
         </Switch>
         <Footer />
       </BrowserRouter>
