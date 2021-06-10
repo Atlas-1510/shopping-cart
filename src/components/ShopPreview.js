@@ -106,7 +106,7 @@ function ShopPreview() {
       </SubTitle>
       <Grid>
         {shopItems.map((item) => (
-          <ShopTile item={item} />
+          <ShopTile item={item} key={item.title} />
         ))}
       </Grid>
       <ButtonTwo
