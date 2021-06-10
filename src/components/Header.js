@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { Link, NavLink } from "react-router-dom";
-
 import { IconContext } from "react-icons";
 import { FaShoppingCart } from "react-icons/fa";
 import { MdExpandMore } from "react-icons/md";
 import useWindowDimensions from "./useWindowDimensions";
+import { slide as Menu } from "react-burger-menu";
 
 const StyledHeader = styled.header`
   background: ${(props) => props.appStyles.primaryColor};
@@ -69,10 +69,93 @@ const StyledFaShoppingCart = styled(FaShoppingCart)`
   }
 `;
 
+const StyledMenu = styled(Menu)`
+  z-index: 10;
+`;
+
+const hamburgerStyles = {
+  bmBurgerButton: {
+    position: "fixed",
+    width: "36px",
+    height: "30px",
+    right: "1.7rem",
+    top: "1.7rem",
+  },
+  bmBurgerBars: {
+    background: "#373a47",
+  },
+  bmBurgerBarsHover: {
+    background: "#a90000",
+  },
+  bmCrossButton: {
+    height: "24px",
+    width: "24px",
+  },
+  bmCross: {
+    background: "#bdc3c7",
+  },
+  bmMenuWrap: {
+    position: "fixed",
+    height: "100%",
+  },
+  bmMenu: {
+    background: "#373a47",
+    padding: "2.5em 1.5em 0",
+    fontSize: "1.15em",
+  },
+  bmMorphShape: {
+    fill: "#373a47",
+  },
+  bmItemList: {
+    color: "#b8b7ad",
+    padding: "0.8em",
+  },
+  bmItem: {
+    display: "inline-block",
+  },
+  bmOverlay: {
+    background: "rgba(0, 0, 0, 0.3)",
+  },
+};
+
 function Header(props) {
   const { width } = useWindowDimensions();
   if (width < 600) {
-    return <div>MobileMenu</div>;
+    return (
+      <StyledHeader appStyles={props.appStyles}>
+        <StyledLink to="/">
+          <Logo appStyles={props.appStyles}>CYCLING SHOP</Logo>
+        </StyledLink>
+        <StyledMenu styles={hamburgerStyles} right>
+          <StyledLink
+            to="/about"
+            activeStyle={{
+              color: "#ff356b",
+            }}
+          >
+            <NavItem>ABOUT</NavItem>
+          </StyledLink>
+          <StyledLink
+            to="/shop"
+            activeStyle={{
+              color: "#ff356b",
+            }}
+          >
+            <NavItem>
+              SHOP
+              <IconContext.Provider value={{ size: "1.5rem" }}>
+                <MdExpandMore style={ExpandIconStyles} />
+              </IconContext.Provider>
+            </NavItem>
+          </StyledLink>
+          <NavItem>
+            <IconContext.Provider value={{ size: "1.1rem" }}>
+              <StyledFaShoppingCart style={ShoppingCartIconStyles} />
+            </IconContext.Provider>
+          </NavItem>
+        </StyledMenu>
+      </StyledHeader>
+    );
   } else {
     return (
       <StyledHeader appStyles={props.appStyles}>
