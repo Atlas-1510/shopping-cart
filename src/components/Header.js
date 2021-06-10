@@ -56,6 +56,16 @@ const StyledLink = styled(Link)`
   text-decoration: none;
   color: black;
   margin: 1rem;
+
+  &:hover {
+    color: #ff356b;
+  }
+`;
+
+const StyledFaShoppingCart = styled(FaShoppingCart)`
+  &:hover {
+    fill: #ff356b;
+  }
 `;
 
 function Header(props) {
@@ -79,7 +89,7 @@ function Header(props) {
           </StyledLink>
           <NavItem>
             <IconContext.Provider value={{ size: "1.1rem" }}>
-              <FaShoppingCart style={ShoppingCartIconStyles} />
+              <StyledFaShoppingCart style={ShoppingCartIconStyles} />
             </IconContext.Provider>
           </NavItem>
         </List>
