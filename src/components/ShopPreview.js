@@ -13,7 +13,8 @@ import yap1 from "../img/shop/Knights-Of-Suburbia-LS-Jersey-Yapa-Male-3Q-600x600
 import yap2 from "../img/shop/Knights-Of-Suburbia-LS-Jersey-Yapa-Male-R-600x600.jpg";
 import sunrise1 from "../img/shop/Knights-Of-Suburbia-Jersey-Sunrise-Male-3QL-600x600.jpg";
 import sunrise2 from "../img/shop/Knights-Of-Suburbia-Jersey-Sunrise-Male-F-600x600.jpg";
-
+import club1 from "../img/shop/Knights-Of-Suburbia-Jersey-Club-Male-3QL-600x600.jpg";
+import club2 from "../img/shop/Knights-Of-Suburbia-Jersey-Club-Male-F-600x600.jpg";
 const shopItems = [
   {
     category: "Jerseys",
@@ -48,6 +49,13 @@ const shopItems = [
     title: "SUNRISE JERSEY",
     primaryImage: sunrise1,
     secondaryImage: sunrise2,
+    onSale: false,
+  },
+  {
+    category: "Jerseys",
+    title: "THE CLUB JERSEY",
+    primaryImage: club1,
+    secondaryImage: club2,
     onSale: false,
   },
 ];
