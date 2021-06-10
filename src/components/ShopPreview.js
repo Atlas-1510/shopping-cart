@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 import ShopTile from "./ShopTile";
 import ButtonTwo from "./ButtonTwo";
 import camo1 from "../img/shop/Knights-Of-Suburbia-LS-Jersey-Green-Camo-Male-3Q-600x600.jpg";
@@ -85,12 +86,16 @@ const SubTitle = styled.span`
   font-weight: lighter;
 `;
 
-const Link = styled.a`
+const StyledExternalLink = styled.a`
   text-decoration: none;
   color: #ff356b;
   &:visited {
     color: #ff356b;
   }
+`;
+
+const StyledLink = styled(Link)`
+  text-decoration: none;
 `;
 
 function ShopPreview() {
@@ -99,9 +104,9 @@ function ShopPreview() {
       <Title>SHOP GEAR</Title>
       <SubTitle>
         $10 from every jersey sale goes to support the work of the{" "}
-        <Link href="https://www.lovemeloveyou.org.au/">
+        <StyledExternalLink href="https://www.lovemeloveyou.org.au/">
           Love Me Love You Foundation
-        </Link>
+        </StyledExternalLink>
         .
       </SubTitle>
       <Grid>
@@ -109,13 +114,15 @@ function ShopPreview() {
           <ShopTile item={item} key={item.title} />
         ))}
       </Grid>
-      <ButtonTwo
-        label="SHOP GEAR"
-        primaryColor="black"
-        secondaryColor="#ff356b"
-        primaryTextColor="white"
-        secondaryTextColor="black"
-      ></ButtonTwo>
+      <StyledLink to="/shop">
+        <ButtonTwo
+          label="SHOP GEAR"
+          primaryColor="black"
+          secondaryColor="#ff356b"
+          primaryTextColor="white"
+          secondaryTextColor="black"
+        ></ButtonTwo>
+      </StyledLink>
     </Container>
   );
 }

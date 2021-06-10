@@ -2,7 +2,9 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { useSpring, animated } from "react-spring";
 
-const Button = styled(animated.button)`
+// Note, used an li not a button element to comply with use of react-router-dom link
+
+const Button = styled(animated.li)`
   background: ${(props) => props.primaryColor};
   border: none;
   padding: 0.5rem 1rem;
@@ -10,6 +12,7 @@ const Button = styled(animated.button)`
   font-size: 1.2rem;
   font-family: Tungsten;
   cursor: pointer;
+  list-style: none;
 `;
 
 function ButtonTwo({

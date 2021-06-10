@@ -1,5 +1,6 @@
 import React from "react";
 import { animated, useSpring } from "@react-spring/web";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import Button from "./Button";
 
@@ -39,10 +40,16 @@ const LittleText = styled.span`
   font-weight: 300;
   z-index: 10;
   text-align: center;
+  margin-bottom: 1rem;
 
   @media only screen and (min-width: 900px) {
     font-size: 1.5rem;
   }
+`;
+
+const StyledLink = styled(Link)`
+  z-index: 10;
+  padding: 0;
 `;
 
 const useZoomSpring = (duration) => {
@@ -66,7 +73,9 @@ const CarouselSlide = ({ style, slide, duration }) => {
       />
       <BigText>{slide.bigText}</BigText>
       <LittleText>{slide.littleText}</LittleText>
-      <Button label="SHOP NOW" />
+      <StyledLink to="/shop">
+        <Button label="SHOP NOW" />
+      </StyledLink>
     </SlideContainer>
   );
 };

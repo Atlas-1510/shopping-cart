@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { AiFillGithub } from "react-icons/ai";
 import { IconContext } from "react-icons";
+import { Link } from "react-router-dom";
 
 const Container = styled.div`
   background: black;
@@ -17,8 +18,9 @@ const Logo = styled.h2`
   color: white;
 `;
 
-const Link = styled.a`
+const FooterItem = styled.li`
   cursor: pointer;
+  list-style: none;
   &:hover {
     color: #ff356b;
   }
@@ -32,20 +34,27 @@ const LinkContainer = styled.div`
   color: white;
 `;
 
+const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: white;
+`;
+
 function Footer() {
   return (
     <Container>
       <Logo>CYCLING SHOP</Logo>
       <LinkContainer>
-        <Link>About</Link>
-        <Link>Shop</Link>
-        <Link>Contact</Link>
+        <FooterItem>About</FooterItem>
+        <StyledLink to="/shop">
+          <FooterItem>Shop</FooterItem>
+        </StyledLink>
+        <FooterItem>Contact</FooterItem>
       </LinkContainer>
-      <Link href="https://github.com/Atlas-1510/shopping-cart">
+      <a href="https://github.com/Atlas-1510/shopping-cart">
         <IconContext.Provider value={{ color: "white", size: "3rem" }}>
           <AiFillGithub />
         </IconContext.Provider>
-      </Link>
+      </a>
     </Container>
   );
 }
