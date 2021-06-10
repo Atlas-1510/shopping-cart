@@ -18,6 +18,7 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  flex-grow: 1;
 `;
 
 const SectionHeader = styled.h2`

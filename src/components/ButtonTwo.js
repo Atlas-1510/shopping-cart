@@ -13,6 +13,7 @@ const Button = styled(animated.li)`
   font-family: Tungsten;
   cursor: pointer;
   list-style: none;
+  z-index: 10;
 `;
 
 function ButtonTwo({

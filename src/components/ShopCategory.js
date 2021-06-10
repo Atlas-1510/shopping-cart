@@ -1,10 +1,16 @@
 import React from "react";
 import styled from "styled-components";
 
+import ButtonTwo from "./ButtonTwo";
+
 const Container = styled.div`
   position: relative;
   width: 100%;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `;
 
 const ImageHolder = styled.div`
@@ -20,6 +26,14 @@ const ImageHolder = styled.div`
 const Image = styled.img`
   width: 100%;
   height: 100%;
+  opacity: 0.8;
+`;
+
+const CategoryTitle = styled.h2`
+  font-family: Tungsten;
+  font-size: 3rem;
+  color: white;
+  z-index: 10;
 `;
 
 function ShopCategory(props) {
@@ -29,6 +43,14 @@ function ShopCategory(props) {
       <ImageHolder>
         <Image src={image} />
       </ImageHolder>
+      <CategoryTitle>{title.toUpperCase()}</CategoryTitle>
+      <ButtonTwo
+        label={`SHOP ${title.toUpperCase()}`}
+        primaryColor="#ff356b"
+        secondaryColor="white"
+        primaryTextColor="white"
+        secondaryTextColor="black"
+      />
     </Container>
   );
 }
