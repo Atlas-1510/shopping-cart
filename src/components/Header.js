@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { IconContext } from "react-icons";
 import { FaShoppingCart } from "react-icons/fa";
 import { MdExpandMore } from "react-icons/md";
@@ -20,19 +20,6 @@ const Logo = styled.span`
   color: ${(props) => props.appStyles.fontSecondaryColor};
   font-family: Tungsten;
   font-weight: 600;
-`;
-
-const NavBar = styled.nav`
-  justify-self: end;
-  font-family: Helvetica;
-  font-weight: 600;
-  margin-right: 2rem;
-`;
-
-const List = styled.ul`
-  list-style-type: none;
-  display: flex;
-  align-items: center;
 `;
 
 const NavItem = styled.li`
@@ -198,3 +185,53 @@ function Header(props) {
 }
 
 export default Header;
+
+const StyledNavBar = styled.nav`
+  justify-self: end;
+  font-family: Helvetica;
+  font-weight: 600;
+  margin-right: 2rem;
+`;
+
+const List = styled.ul`
+  display: flex;
+  align-items: center;
+  @media (max-width: 601px) {
+    display: none;
+  }
+`;
+
+function NavBar() {
+  return (
+    <StyledNavBar>
+      <List>
+        <StyledLink
+          to="/about"
+          activeStyle={{
+            color: "#ff356b",
+          }}
+        >
+          <NavItem>ABOUT</NavItem>
+        </StyledLink>
+        <StyledLink
+          to="/shop"
+          activeStyle={{
+            color: "#ff356b",
+          }}
+        >
+          <NavItem>
+            SHOP
+            <IconContext.Provider value={{ size: "1.5rem" }}>
+              <MdExpandMore style={ExpandIconStyles} />
+            </IconContext.Provider>
+          </NavItem>
+        </StyledLink>
+        <NavItem>
+          <IconContext.Provider value={{ size: "1.1rem" }}>
+            <StyledFaShoppingCart style={ShoppingCartIconStyles} />
+          </IconContext.Provider>
+        </NavItem>
+      </List>
+    </StyledNavBar>
+  );
+}
