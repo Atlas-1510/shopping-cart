@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 import { IconContext } from "react-icons";
 import { FaShoppingCart } from "react-icons/fa";
@@ -52,7 +52,7 @@ const ShoppingCartIconStyles = {
   transform: "translate(0px, -1px)",
 };
 
-const StyledLink = styled(Link)`
+const StyledLink = styled(NavLink)`
   text-decoration: none;
   color: black;
   margin: 1rem;
@@ -76,10 +76,20 @@ function Header(props) {
       </StyledLink>
       <NavBar>
         <List>
-          <StyledLink to="/about">
+          <StyledLink
+            to="/about"
+            activeStyle={{
+              color: "#ff356b",
+            }}
+          >
             <NavItem>ABOUT</NavItem>
           </StyledLink>
-          <StyledLink to="/shop">
+          <StyledLink
+            to="/shop"
+            activeStyle={{
+              color: "#ff356b",
+            }}
+          >
             <NavItem>
               SHOP
               <IconContext.Provider value={{ size: "1.5rem" }}>
