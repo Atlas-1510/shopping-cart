@@ -85,13 +85,24 @@ const SubTitle = styled.span`
   font-weight: lighter;
 `;
 
+const Link = styled.a`
+  text-decoration: none;
+  color: #ff356b;
+  &:visited {
+    color: #ff356b;
+  }
+`;
+
 function ShopPreview() {
   return (
     <Container>
       <Title>SHOP GEAR</Title>
       <SubTitle>
-        $10 from every jersey sale goes to support the work of the Love Me Love
-        You Foundation.
+        $10 from every jersey sale goes to support the work of the{" "}
+        <Link href="https://www.lovemeloveyou.org.au/">
+          Love Me Love You Foundation
+        </Link>
+        .
       </SubTitle>
       <Grid>
         {shopItems.map((item) => (
