@@ -27,6 +27,12 @@ const Image = styled.img`
   width: 100%;
   height: 100%;
   opacity: 0.8;
+  transition: all ease 300ms;
+
+  ${Container}:hover & {
+    opacity: 1;
+    transform: scale(1.1);
+  }
 `;
 
 const CategoryTitle = styled.h2`

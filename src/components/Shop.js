@@ -16,7 +16,6 @@ const Container = styled.div`
   background: black;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   flex-grow: 1;
 `;
@@ -24,7 +23,7 @@ const Container = styled.div`
 const SectionHeader = styled.h2`
   color: white;
   font-family: Tungsten;
-  font-size: 2rem;
+  font-size: 4rem;
   margin: 2rem;
 `;
 

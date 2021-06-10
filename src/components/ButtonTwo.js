@@ -11,9 +11,9 @@ const Button = styled(animated.li)`
   margin: 1rem;
   font-size: 1.2rem;
   font-family: Tungsten;
-  cursor: pointer;
   list-style: none;
   z-index: 10;
+  cursor: pointer;
 `;
 
 function ButtonTwo({
