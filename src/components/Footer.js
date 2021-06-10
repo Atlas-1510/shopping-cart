@@ -39,6 +39,12 @@ const StyledLink = styled(Link)`
   color: white;
 `;
 
+const StyledAiFillGithub = styled(AiFillGithub)`
+  &:hover {
+    fill: #ff356b;
+  }
+`;
+
 function Footer() {
   return (
     <Container>
@@ -54,7 +60,7 @@ function Footer() {
       </LinkContainer>
       <a href="https://github.com/Atlas-1510/shopping-cart">
         <IconContext.Provider value={{ color: "white", size: "3rem" }}>
-          <AiFillGithub />
+          <StyledAiFillGithub />
         </IconContext.Provider>
       </a>
     </Container>
