@@ -96,6 +96,7 @@ const hamburgerStyles = {
   },
   bmMenuWrap: {
     position: "fixed",
+    top: "0",
     height: "100%",
   },
   bmMenu: {
