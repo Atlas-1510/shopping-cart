@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import ShopCategory from "./ShopCategory";
 import jerseys from "../img/categories/jerseys.jpg";
 import accessories from "../img/categories/accessories.jpg";
 import baselayers from "../img/categories/baselayers.jpg";
@@ -28,8 +29,10 @@ const SectionHeader = styled.h2`
 
 const Grid = styled.div`
   width: 90%;
+
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+  grid-auto-rows: 250px;
   grid-gap: 1rem;
 `;
 
@@ -87,14 +90,9 @@ function Shop() {
     <Container>
       <SectionHeader>SHOP</SectionHeader>
       <Grid>
-        <PlaceHolder />
-        <PlaceHolder />
-        <PlaceHolder />
-        <PlaceHolder />
-        <PlaceHolder />
-        <PlaceHolder />
-        <PlaceHolder />
-        <PlaceHolder />
+        {categories.map((category) => (
+          <ShopCategory category={category} key={category.title} />
+        ))}
       </Grid>
     </Container>
   );
