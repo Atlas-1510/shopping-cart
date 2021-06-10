@@ -1,5 +1,7 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
+
 import { IconContext } from "react-icons";
 import { FaShoppingCart } from "react-icons/fa";
 import { MdExpandMore } from "react-icons/md";
@@ -14,7 +16,6 @@ const StyledHeader = styled.header`
 
 const Logo = styled.span`
   font-size: 3rem;
-  margin: 1rem;
   color: ${(props) => props.appStyles.fontSecondaryColor};
   font-family: Tungsten;
   font-weight: 600;
@@ -51,19 +52,29 @@ const ShoppingCartIconStyles = {
   transform: "translate(0px, -1px)",
 };
 
+const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: black;
+  margin: 1rem;
+`;
+
 function Header(props) {
   return (
     <StyledHeader appStyles={props.appStyles}>
-      <Logo appStyles={props.appStyles}>CYCLING SHOP</Logo>
+      <StyledLink to="/">
+        <Logo appStyles={props.appStyles}>CYCLING SHOP</Logo>
+      </StyledLink>
       <NavBar>
         <List>
           <NavItem>ABOUT</NavItem>
-          <NavItem>
-            SHOP
-            <IconContext.Provider value={{ size: "1.5rem" }}>
-              <MdExpandMore style={ExpandIconStyles} />
-            </IconContext.Provider>
-          </NavItem>
+          <StyledLink to="/shop">
+            <NavItem>
+              SHOP
+              <IconContext.Provider value={{ size: "1.5rem" }}>
+                <MdExpandMore style={ExpandIconStyles} />
+              </IconContext.Provider>
+            </NavItem>
+          </StyledLink>
           <NavItem>
             <IconContext.Provider value={{ size: "1.1rem" }}>
               <FaShoppingCart style={ShoppingCartIconStyles} />

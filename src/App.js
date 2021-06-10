@@ -26,10 +26,14 @@ function App() {
     <AppContainer>
       <BrowserRouter>
         <Header appStyles={appStyles} />
-        <Route path="/">
-          <Home appStyles={appStyles} />
-        </Route>
-
+        <Switch>
+          <Route
+            exact
+            path="/"
+            render={(appStyles) => <Home appStyles={appStyles} />}
+          />
+          <Route exact path="/shop" component={Shop} />
+        </Switch>
         <Footer />
       </BrowserRouter>
     </AppContainer>
