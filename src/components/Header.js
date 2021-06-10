@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { Link, NavLink } from "react-router-dom";
 
 import { IconContext } from "react-icons";
 import { FaShoppingCart } from "react-icons/fa";
 import { MdExpandMore } from "react-icons/md";
+import useWindowDimensions from "./useWindowDimensions";
 
 const StyledHeader = styled.header`
   background: ${(props) => props.appStyles.primaryColor};
@@ -69,43 +70,48 @@ const StyledFaShoppingCart = styled(FaShoppingCart)`
 `;
 
 function Header(props) {
-  return (
-    <StyledHeader appStyles={props.appStyles}>
-      <StyledLink to="/">
-        <Logo appStyles={props.appStyles}>CYCLING SHOP</Logo>
-      </StyledLink>
-      <NavBar>
-        <List>
-          <StyledLink
-            to="/about"
-            activeStyle={{
-              color: "#ff356b",
-            }}
-          >
-            <NavItem>ABOUT</NavItem>
-          </StyledLink>
-          <StyledLink
-            to="/shop"
-            activeStyle={{
-              color: "#ff356b",
-            }}
-          >
+  const { width } = useWindowDimensions();
+  if (width < 600) {
+    return <div>MobileMenu</div>;
+  } else {
+    return (
+      <StyledHeader appStyles={props.appStyles}>
+        <StyledLink to="/">
+          <Logo appStyles={props.appStyles}>CYCLING SHOP</Logo>
+        </StyledLink>
+        <NavBar>
+          <List>
+            <StyledLink
+              to="/about"
+              activeStyle={{
+                color: "#ff356b",
+              }}
+            >
+              <NavItem>ABOUT</NavItem>
+            </StyledLink>
+            <StyledLink
+              to="/shop"
+              activeStyle={{
+                color: "#ff356b",
+              }}
+            >
+              <NavItem>
+                SHOP
+                <IconContext.Provider value={{ size: "1.5rem" }}>
+                  <MdExpandMore style={ExpandIconStyles} />
+                </IconContext.Provider>
+              </NavItem>
+            </StyledLink>
             <NavItem>
-              SHOP
-              <IconContext.Provider value={{ size: "1.5rem" }}>
-                <MdExpandMore style={ExpandIconStyles} />
+              <IconContext.Provider value={{ size: "1.1rem" }}>
+                <StyledFaShoppingCart style={ShoppingCartIconStyles} />
               </IconContext.Provider>
             </NavItem>
-          </StyledLink>
-          <NavItem>
-            <IconContext.Provider value={{ size: "1.1rem" }}>
-              <StyledFaShoppingCart style={ShoppingCartIconStyles} />
-            </IconContext.Provider>
-          </NavItem>
-        </List>
-      </NavBar>
-    </StyledHeader>
-  );
+          </List>
+        </NavBar>
+      </StyledHeader>
+    );
+  }
 }
 
 export default Header;
