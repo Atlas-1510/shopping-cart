@@ -66,7 +66,9 @@ function Header(props) {
       </StyledLink>
       <NavBar>
         <List>
-          <NavItem>ABOUT</NavItem>
+          <StyledLink to="/about">
+            <NavItem>ABOUT</NavItem>
+          </StyledLink>
           <StyledLink to="/shop">
             <NavItem>
               SHOP

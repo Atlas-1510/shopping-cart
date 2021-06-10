@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { useSpring, animated } from "react-spring";
 import { useInView } from "react-intersection-observer";
+import { Link } from "react-router-dom";
 import logo from "../img/logo-white.svg";
 import ButtonTwo from "./ButtonTwo";
 
@@ -46,6 +47,11 @@ const LittleText = styled.div`
   font-weight: lighter;
 `;
 
+const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: white;
+`;
+
 function IntroBlurb() {
   const { ref, inView } = useInView({
     threshold: 0.3,
@@ -84,13 +90,15 @@ function IntroBlurb() {
           stigma, starting conversations and empowering people to develop
           wellbeing and resilience in overcoming life’s challenges.
         </LittleText>
-        <ButtonTwo
-          label="ABOUT US"
-          primaryColor="#ff356b"
-          secondaryColor="white"
-          primaryTextColor="white"
-          secondaryTextColor="black"
-        />
+        <StyledLink to="/about">
+          <ButtonTwo
+            label="ABOUT US"
+            primaryColor="#ff356b"
+            secondaryColor="white"
+            primaryTextColor="white"
+            secondaryTextColor="black"
+          />
+        </StyledLink>
       </TextContent>
     </Container>
   );

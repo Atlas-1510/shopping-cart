@@ -44,7 +44,9 @@ function Footer() {
     <Container>
       <Logo>CYCLING SHOP</Logo>
       <LinkContainer>
-        <FooterItem>About</FooterItem>
+        <StyledLink to="/about">
+          <FooterItem>About</FooterItem>
+        </StyledLink>
         <StyledLink to="/shop">
           <FooterItem>Shop</FooterItem>
         </StyledLink>

@@ -3,9 +3,6 @@ import styled from "styled-components";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 import Header from "./components/Header";
-// import Carousel from "./components/Carousel";
-// import IntroBlurb from "./components/IntroBlurb";
-// import ShopPreview from "./components/ShopPreview";
 import Home from "./components/Home";
 import About from "./components/About";
 import Footer from "./components/Footer";
