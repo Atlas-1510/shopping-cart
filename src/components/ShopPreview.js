@@ -19,30 +19,35 @@ const shopItems = [
     title: "CAMO LONG SLEEVE JERSEY",
     primaryImage: camo1,
     secondaryImage: camo2,
+    onSale: true,
   },
   {
     category: "Jerseys",
     title: "THE RACE JERSEY 2.0",
     primaryImage: race1,
     secondaryImage: race2,
+    onSale: false,
   },
   {
     category: "Jerseys",
     title: "NEVER ALONE JERSEY",
     primaryImage: never1,
     secondaryImage: never2,
+    onSale: true,
   },
   {
     category: "Jerseys",
     title: "YAPAMEYEPUKA LONG SLEEVE JERSEY",
     primaryImage: yap1,
     secondaryImage: yap2,
+    onSale: false,
   },
   {
     category: "Jerseys",
     title: "SUNRISE JERSEY",
     primaryImage: sunrise1,
     secondaryImage: sunrise2,
+    onSale: false,
   },
 ];
 
