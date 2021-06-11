@@ -35,9 +35,3 @@ function ShopCategory({ category, items }) {
 }
 
 export default ShopCategory;
-
-// <div>
-//   {items.map((item) => (
-//     <div>{item.title}</div>
-//   ))}
-// </div>;
