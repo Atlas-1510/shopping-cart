@@ -119,7 +119,13 @@ function ShopPreview() {
       </SubTitle>
       <Grid>
         {shopItems.map((item) => (
-          <ItemTile item={item} key={item.title} />
+          <ItemTile
+            item={item}
+            key={item.title}
+            path={`/shop/${item.category.toLowerCase()}/${item.title
+              .replace(/\s+/g, "")
+              .toLowerCase()}`}
+          />
         ))}
       </Grid>
       <StyledLink to="/shop">

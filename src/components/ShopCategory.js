@@ -45,6 +45,7 @@ function ShopCategory({ category, items }) {
         <Route
           exact
           path={`${path}/${item.title.toLowerCase().replace(/\s+/g, "")}`}
+          key={item.title}
         >
           <ItemPage item={item} />
         </Route>
