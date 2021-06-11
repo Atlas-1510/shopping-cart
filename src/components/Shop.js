@@ -34,6 +34,15 @@ import black1 from "../img/items/bibs/black-bibs-1.jpg";
 import black2 from "../img/items/bibs/black-bibs-2.jpg";
 import dark1 from "../img/items/bibs/dark-knight-1.jpg";
 import dark2 from "../img/items/bibs/dark-knight-2.jpg";
+// Vest images
+import yapa1 from "../img/items/vests/yapa1.jpg";
+import yapa2 from "../img/items/vests/yapa2.jpg";
+import racevest1 from "../img/items/vests/racevest1.jpg";
+import racevest2 from "../img/items/vests/racevest2.jpg";
+import yellow1 from "../img/items/vests/yellow1.jpg";
+import yellow2 from "../img/items/vests/yellow2.jpg";
+import blackvest1 from "../img/items/vests/black1.jpg";
+import blackvest2 from "../img/items/vests/black2.jpg";
 
 const Container = styled.div`
   background: black;
@@ -168,6 +177,36 @@ const shopItems = {
       primaryImage: dark1,
       secondaryImage: dark2,
       onSale: false,
+    },
+  ],
+  vests: [
+    {
+      category: "Vests",
+      title: "YAPAMEYEPUKA VEST",
+      primaryImage: yapa1,
+      secondaryImage: yapa2,
+      onSale: true,
+    },
+    {
+      category: "Vests",
+      title: "THE RACE/CLUB VEST 2.0",
+      primaryImage: racevest1,
+      secondaryImage: racevest2,
+      onSale: false,
+    },
+    {
+      category: "Vests",
+      title: "THE YELLOW AND GREY VEST",
+      primaryImage: yellow1,
+      secondaryImage: yellow2,
+      onSale: false,
+    },
+    {
+      category: "Vests",
+      title: "THE BLACK VEST",
+      primaryImage: blackvest1,
+      secondaryImage: blackvest2,
+      onSale: true,
     },
   ],
 };
