@@ -98,9 +98,11 @@ function Shop() {
           </Grid>
         </Container>
       </Route>
-      <Route exact path={`${path}/jerseys`}>
-        <h1>JERSEY PAGE</h1>
-      </Route>
+      {categories.map((category) => (
+        <Route exact path={`${path}/${category.title}`}>
+          <h1>{category.title} page</h1>
+        </Route>
+      ))}
     </Switch>
   );
 }
