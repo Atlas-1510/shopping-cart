@@ -43,6 +43,24 @@ import yellow1 from "../img/items/vests/yellow1.jpg";
 import yellow2 from "../img/items/vests/yellow2.jpg";
 import blackvest1 from "../img/items/vests/black1.jpg";
 import blackvest2 from "../img/items/vests/black2.jpg";
+// Jacket images
+import darkjacket1 from "../img/items/jackets/darkjacket1.jpg";
+import darkjacket2 from "../img/items/jackets/darkjacket2.jpg";
+// Baselayer images
+import baselayer1 from "../img/items/baselayers/baselayer1.jpg";
+import baselayer2 from "../img/items/baselayers/baselayer2.jpg";
+// Socks images
+import NAsocks1 from "../img/items/socks/NAsocks1.jpg";
+import NAsocks2 from "../img/items/socks/NAsocks2.jpg";
+import STsocks1 from "../img/items/socks/STsocks1.jpg";
+import STsocks2 from "../img/items/socks/STsocks2.jpg";
+// Warmers images
+import arm1 from "../img/items/warmers/arm1.jpg";
+import arm2 from "../img/items/warmers/arm2.jpg";
+import neck1 from "../img/items/warmers/neck1.jpg";
+import neck2 from "../img/items/warmers/neck2.jpg";
+import leg1 from "../img/items/warmers/leg1.jpg";
+import knee1 from "../img/items/warmers/knee1.jpg";
 
 const Container = styled.div`
   background: black;
@@ -70,6 +88,10 @@ const Grid = styled.div`
 
 const categories = [
   {
+    title: "all items",
+    image: caps,
+  },
+  {
     title: "jerseys",
     image: jerseys,
   },
@@ -96,18 +118,6 @@ const categories = [
   {
     title: "warmers",
     image: warmers,
-  },
-  {
-    title: "caps",
-    image: caps,
-  },
-  {
-    title: "accessories",
-    image: accessories,
-  },
-  {
-    title: "casual",
-    image: casual,
   },
 ];
 
@@ -209,10 +219,83 @@ const shopItems = {
       onSale: true,
     },
   ],
+  jackets: [
+    {
+      category: "Jackets",
+      title: "DARK KNIGHT THERMAL JACKET",
+      primaryImage: darkjacket1,
+      secondaryImage: darkjacket2,
+      onSale: false,
+    },
+  ],
+  baselayers: [
+    {
+      category: "Baselayers",
+      title: "THE BASE LAYER RANGE",
+      primaryImage: baselayer1,
+      secondaryImage: baselayer2,
+      onSale: false,
+    },
+  ],
+  socks: [
+    {
+      category: "Socks",
+      title: "NEVER ALONE SOCKS",
+      primaryImage: NAsocks1,
+      secondaryImage: NAsocks2,
+      onSale: false,
+    },
+    {
+      category: "Socks",
+      title: "STAY STRONG SOCKS",
+      primaryImage: STsocks1,
+      secondaryImage: STsocks2,
+      onSale: false,
+    },
+  ],
+  warmers: [
+    {
+      category: "Warmers",
+      title: "THE ARM WARMERS",
+      primaryImage: arm1,
+      secondaryImage: arm2,
+      onSale: false,
+    },
+    {
+      category: "Warmers",
+      title: "THE NECK WARMER",
+      primaryImage: neck1,
+      secondaryImage: neck2,
+      onSale: false,
+    },
+    {
+      category: "Warmers",
+      title: "THE LEG WARMERS",
+      primaryImage: leg1,
+      secondaryImage: leg1,
+      onSale: false,
+    },
+    {
+      category: "Warmers",
+      title: "THE KNEE WARMERS",
+      primaryImage: knee1,
+      secondaryImage: knee1,
+      onSale: true,
+    },
+  ],
+};
+
+const getAllItems = () => {
+  const allItems = [];
+  for (const [key, value] of Object.entries(shopItems)) {
+    value.forEach((item) => allItems.push(item));
+  }
+  return allItems;
 };
 
 function Shop() {
   let { path, url } = useRouteMatch();
+
   return (
     <Switch>
       <Route exact path={path}>
@@ -233,7 +316,13 @@ function Shop() {
         <Route exact path={`${path}/${category.title}`}>
           <ShopCategory
             category={category}
-            items={shopItems[category.title] ? shopItems[category.title] : []}
+            items={
+              category.title === "all items"
+                ? getAllItems()
+                : shopItems[category.title]
+                ? shopItems[category.title]
+                : []
+            }
           />
         </Route>
       ))}
