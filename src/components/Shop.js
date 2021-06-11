@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { useRouteMatch } from "react-router";
+import { useRouteMatch, Switch, Route } from "react-router";
 import ShopCategory from "./ShopCategory";
 import jerseys from "../img/categories/jerseys.jpg";
 import accessories from "../img/categories/accessories.jpg";
@@ -83,18 +83,25 @@ const categories = [
 function Shop() {
   let { path, url } = useRouteMatch();
   return (
-    <Container>
-      <SectionHeader>SHOP</SectionHeader>
-      <Grid>
-        {categories.map((category) => (
-          <ShopCategory
-            category={category}
-            key={category.title}
-            path={`${url}/${category.title}`}
-          />
-        ))}
-      </Grid>
-    </Container>
+    <Switch>
+      <Route exact path={path}>
+        <Container>
+          <SectionHeader>SHOP</SectionHeader>
+          <Grid>
+            {categories.map((category) => (
+              <ShopCategory
+                category={category}
+                key={category.title}
+                path={`${url}/${category.title}`}
+              />
+            ))}
+          </Grid>
+        </Container>
+      </Route>
+      <Route exact path={`${path}/jerseys`}>
+        <h1>JERSEY PAGE</h1>
+      </Route>
+    </Switch>
   );
 }
 

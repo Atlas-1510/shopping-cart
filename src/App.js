@@ -30,7 +30,7 @@ function App() {
             path="/"
             render={(appStyles) => <Home appStyles={appStyles} />}
           />
-          <Route exact path="/shop" component={Shop} />
+          <Route path="/shop" component={Shop} />
           <Route exact path="/about" component={About} />
         </Switch>
         <Footer />
