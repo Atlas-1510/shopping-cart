@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import ShopTile from "./ShopTile";
+import ItemTile from "./ItemTile";
 import ButtonTwo from "./ButtonTwo";
 import camo1 from "../img/shop/Knights-Of-Suburbia-LS-Jersey-Green-Camo-Male-3Q-600x600.jpg";
 import camo2 from "../img/shop/Knights-Of-Suburbia-LS-Jersey-Green-Camo-Female-3Q-600x600.jpg";
@@ -119,7 +119,7 @@ function ShopPreview() {
       </SubTitle>
       <Grid>
         {shopItems.map((item) => (
-          <ShopTile item={item} key={item.title} />
+          <ItemTile item={item} key={item.title} />
         ))}
       </Grid>
       <StyledLink to="/shop">

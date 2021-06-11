@@ -73,7 +73,7 @@ const SaleIcon = styled.div`
   }
 `;
 
-function ShopTile({ item }) {
+function ItemTile({ item }) {
   const [mouseInsideImage, toggle] = useState(false);
   const imageAnimation = useSpring({
     from: {
@@ -83,8 +83,6 @@ function ShopTile({ item }) {
       opacity: mouseInsideImage ? 0 : 1,
     },
   });
-
-  // CURRENT PROJECT, WORK OUT HOW TO ADD SALE ICON TO SHOP TILE
 
   if (item.onSale) {
     return (
@@ -130,4 +128,4 @@ function ShopTile({ item }) {
   );
 }
 
-export default ShopTile;
+export default ItemTile;
