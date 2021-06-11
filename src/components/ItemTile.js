@@ -47,6 +47,7 @@ const Title = styled.span`
   font-size: 1.5rem;
   font-family: Tungsten;
   text-align: center;
+  text-decoration: none;
 `;
 
 const SaleIcon = styled.div`
@@ -74,6 +75,11 @@ const SaleIcon = styled.div`
   }
 `;
 
+const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: black;
+`;
+
 function ItemTile({ item, path }) {
   const [mouseInsideImage, toggle] = useState(false);
   const imageAnimation = useSpring({
@@ -87,7 +93,7 @@ function ItemTile({ item, path }) {
 
   if (item.onSale) {
     return (
-      <Link to={path}>
+      <StyledLink to={path}>
         <Container>
           <SaleIcon>Sale!</SaleIcon>
           <ImageContainer
@@ -106,12 +112,12 @@ function ItemTile({ item, path }) {
           <Category>{item.category}</Category>
           <Title>{item.title}</Title>
         </Container>
-      </Link>
+      </StyledLink>
     );
   }
 
   return (
-    <Link to={path}>
+    <StyledLink to={path}>
       <Container>
         <ImageContainer
           onMouseEnter={() => toggle(!mouseInsideImage)}
@@ -129,7 +135,7 @@ function ItemTile({ item, path }) {
         <Category>{item.category}</Category>
         <Title>{item.title}</Title>
       </Container>
-    </Link>
+    </StyledLink>
   );
 }
 
