@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
+import { Switch, Route, useRouteMatch } from "react-router";
 import ItemTile from "./ItemTile";
+import ItemPage from "./ItemPage";
 
 const Container = styled.div`
   flex-grow: 1;
@@ -23,14 +25,31 @@ const Grid = styled.div`
 `;
 
 function ShopCategory({ category, items }) {
+  let { path, url } = useRouteMatch();
   return (
-    <Container>
-      <Grid>
-        {items.map((item) => (
-          <ItemTile item={item} key={item.title} />
-        ))}
-      </Grid>
-    </Container>
+    <Switch>
+      <Route exact path={path}>
+        <Container>
+          <Grid>
+            {items.map((item) => (
+              <ItemTile
+                item={item}
+                key={item.title}
+                path={`${url}/${item.title.toLowerCase().replace(/\s+/g, "")}`}
+              />
+            ))}
+          </Grid>
+        </Container>
+      </Route>
+      {items.map((item) => (
+        <Route
+          exact
+          path={`${path}/${item.title.toLowerCase().replace(/\s+/g, "")}`}
+        >
+          <ItemPage item={item} />
+        </Route>
+      ))}
+    </Switch>
   );
 }
 

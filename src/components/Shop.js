@@ -313,7 +313,7 @@ function Shop() {
         </Container>
       </Route>
       {categories.map((category) => (
-        <Route exact path={`${path}/${category.title}`}>
+        <Route path={`${path}/${category.title}`} key={category.title}>
           <ShopCategory
             category={category}
             items={

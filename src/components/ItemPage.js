@@ -14,10 +14,12 @@ const ImageHolder = styled.div`
   background: pink;
 `;
 
-function ItemPage() {
+function ItemPage({ item }) {
   return (
     <Container>
       <ImageHolder />
+      <h1>Hello from item page</h1>
+      <h1>{item.title}</h1>
     </Container>
   );
 }

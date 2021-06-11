@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { useSpring, animated } from "react-spring";
+import { Link } from "react-router-dom";
 
 const Container = styled(animated.div)`
   position: relative;
@@ -73,7 +74,7 @@ const SaleIcon = styled.div`
   }
 `;
 
-function ItemTile({ item }) {
+function ItemTile({ item, path }) {
   const [mouseInsideImage, toggle] = useState(false);
   const imageAnimation = useSpring({
     from: {
@@ -86,8 +87,32 @@ function ItemTile({ item }) {
 
   if (item.onSale) {
     return (
+      <Link to={path}>
+        <Container>
+          <SaleIcon>Sale!</SaleIcon>
+          <ImageContainer
+            onMouseEnter={() => toggle(!mouseInsideImage)}
+            onMouseLeave={() => toggle(!mouseInsideImage)}
+          >
+            <ImagePrimary
+              src={item.primaryImage}
+              style={{
+                opacity: imageAnimation.opacity,
+              }}
+            />
+            <ImageSecondary src={item.secondaryImage} />
+          </ImageContainer>
+
+          <Category>{item.category}</Category>
+          <Title>{item.title}</Title>
+        </Container>
+      </Link>
+    );
+  }
+
+  return (
+    <Link to={path}>
       <Container>
-        <SaleIcon>Sale!</SaleIcon>
         <ImageContainer
           onMouseEnter={() => toggle(!mouseInsideImage)}
           onMouseLeave={() => toggle(!mouseInsideImage)}
@@ -104,27 +129,7 @@ function ItemTile({ item }) {
         <Category>{item.category}</Category>
         <Title>{item.title}</Title>
       </Container>
-    );
-  }
-
-  return (
-    <Container>
-      <ImageContainer
-        onMouseEnter={() => toggle(!mouseInsideImage)}
-        onMouseLeave={() => toggle(!mouseInsideImage)}
-      >
-        <ImagePrimary
-          src={item.primaryImage}
-          style={{
-            opacity: imageAnimation.opacity,
-          }}
-        />
-        <ImageSecondary src={item.secondaryImage} />
-      </ImageContainer>
-
-      <Category>{item.category}</Category>
-      <Title>{item.title}</Title>
-    </Container>
+    </Link>
   );
 }
 
