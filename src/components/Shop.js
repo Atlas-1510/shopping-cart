@@ -192,7 +192,10 @@ function Shop() {
       </Route>
       {categories.map((category) => (
         <Route exact path={`${path}/${category.title}`}>
-          <ShopCategory category={category} items={shopItems[category.title]} />
+          <ShopCategory
+            category={category}
+            items={shopItems[category.title] ? shopItems[category.title] : []}
+          />
         </Route>
       ))}
     </Switch>
