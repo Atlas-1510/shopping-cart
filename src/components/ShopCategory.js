@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-
+import { Link } from "react-router-dom";
 import ButtonTwo from "./ButtonTwo";
 
 const Container = styled.div`
@@ -42,21 +42,29 @@ const CategoryTitle = styled.h2`
   z-index: 10;
 `;
 
+const StyledLink = styled(Link)`
+  text-decoration: none;
+  z-index: 10;
+`;
+
 function ShopCategory(props) {
   const { title, image } = props.category;
+  const { path } = props;
   return (
     <Container>
       <ImageHolder>
         <Image src={image} />
       </ImageHolder>
       <CategoryTitle>{title.toUpperCase()}</CategoryTitle>
-      <ButtonTwo
-        label={`SHOP ${title.toUpperCase()}`}
-        primaryColor="#ff356b"
-        secondaryColor="white"
-        primaryTextColor="white"
-        secondaryTextColor="black"
-      />
+      <StyledLink to={path}>
+        <ButtonTwo
+          label={`SHOP ${title.toUpperCase()}`}
+          primaryColor="#ff356b"
+          secondaryColor="white"
+          primaryTextColor="white"
+          secondaryTextColor="black"
+        />
+      </StyledLink>
     </Container>
   );
 }
