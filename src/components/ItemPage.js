@@ -10,10 +10,9 @@ const Container = styled.div`
   background-color: #ececec;
 `;
 
-const ImageHolder = styled.div`
+const ImageHolder = styled.img`
   width: 100%;
   height: 600px;
-  background: pink;
   margin: 1rem;
   padding: 1rem;
   margin-left: 10rem;
@@ -61,7 +60,7 @@ const StyledButton = styled(ButtonTwo)`
 function ItemPage({ item }) {
   return (
     <Container>
-      <ImageHolder />
+      <ImageHolder src={item.primaryImage} />
       <Form>
         <Title>{item.title}</Title>
         <Price>${(Math.round(item.price * 100) / 100).toFixed(2)}</Price>
@@ -75,14 +74,14 @@ function ItemPage({ item }) {
           <StyledLi>This is also a placeholder feature</StyledLi>
           <StyledLi>You get the idea</StyledLi>
         </ul>
-        <label for="style">
+        <label htmlFor="style">
           <h3>Style</h3>
         </label>
         <StyledSelect name="style" id="style">
           <option value="Male">Male</option>
           <option value="Female">Female</option>
         </StyledSelect>
-        <label for="size">
+        <label htmlFor="size">
           <h3>Size</h3>
         </label>
         <StyledSelect name="size" id="size">
@@ -91,7 +90,7 @@ function ItemPage({ item }) {
           <option value="Large">Large</option>
         </StyledSelect>
 
-        <label for="quantity">
+        <label htmlFor="quantity">
           <h3>Quantity</h3>
         </label>
         <input
