@@ -22,6 +22,7 @@ function ButtonTwo({
   secondaryColor,
   primaryTextColor,
   secondaryTextColor,
+  className,
 }) {
   const [mouseInside, toggle] = useState(false);
   const spring = useSpring({
@@ -42,6 +43,7 @@ function ButtonTwo({
         background: spring.bgColor,
         color: spring.textColor,
       }}
+      className={className}
     >
       {label}
     </Button>

@@ -129,6 +129,7 @@ const shopItems = {
       primaryImage: camo1,
       secondaryImage: camo2,
       onSale: true,
+      price: 100,
     },
     {
       category: "Jerseys",
@@ -136,6 +137,7 @@ const shopItems = {
       primaryImage: race1,
       secondaryImage: race2,
       onSale: false,
+      price: 100,
     },
     {
       category: "Jerseys",
@@ -143,6 +145,7 @@ const shopItems = {
       primaryImage: never1,
       secondaryImage: never2,
       onSale: true,
+      price: 100,
     },
     {
       category: "Jerseys",
@@ -150,6 +153,7 @@ const shopItems = {
       primaryImage: yap1,
       secondaryImage: yap2,
       onSale: false,
+      price: 100,
     },
     {
       category: "Jerseys",
@@ -157,6 +161,7 @@ const shopItems = {
       primaryImage: sunrise1,
       secondaryImage: sunrise2,
       onSale: false,
+      price: 100,
     },
     {
       category: "Jerseys",
@@ -164,6 +169,7 @@ const shopItems = {
       primaryImage: club1,
       secondaryImage: club2,
       onSale: false,
+      price: 100,
     },
   ],
   bibs: [
@@ -173,6 +179,7 @@ const shopItems = {
       primaryImage: navy1,
       secondaryImage: navy2,
       onSale: true,
+      price: 90,
     },
     {
       category: "Bibs",
@@ -180,6 +187,7 @@ const shopItems = {
       primaryImage: black1,
       secondaryImage: black2,
       onSale: false,
+      price: 90,
     },
     {
       category: "Bibs",
@@ -187,6 +195,7 @@ const shopItems = {
       primaryImage: dark1,
       secondaryImage: dark2,
       onSale: false,
+      price: 90,
     },
   ],
   vests: [
@@ -196,6 +205,7 @@ const shopItems = {
       primaryImage: yapa1,
       secondaryImage: yapa2,
       onSale: true,
+      price: 80,
     },
     {
       category: "Vests",
@@ -203,6 +213,7 @@ const shopItems = {
       primaryImage: racevest1,
       secondaryImage: racevest2,
       onSale: false,
+      price: 80,
     },
     {
       category: "Vests",
@@ -210,6 +221,7 @@ const shopItems = {
       primaryImage: yellow1,
       secondaryImage: yellow2,
       onSale: false,
+      price: 80,
     },
     {
       category: "Vests",
@@ -217,6 +229,7 @@ const shopItems = {
       primaryImage: blackvest1,
       secondaryImage: blackvest2,
       onSale: true,
+      price: 80,
     },
   ],
   jackets: [
@@ -226,6 +239,7 @@ const shopItems = {
       primaryImage: darkjacket1,
       secondaryImage: darkjacket2,
       onSale: false,
+      price: 150,
     },
   ],
   baselayers: [
@@ -235,6 +249,7 @@ const shopItems = {
       primaryImage: baselayer1,
       secondaryImage: baselayer2,
       onSale: false,
+      price: 20,
     },
   ],
   socks: [
@@ -244,6 +259,7 @@ const shopItems = {
       primaryImage: NAsocks1,
       secondaryImage: NAsocks2,
       onSale: false,
+      price: 10,
     },
     {
       category: "Socks",
@@ -251,6 +267,7 @@ const shopItems = {
       primaryImage: STsocks1,
       secondaryImage: STsocks2,
       onSale: false,
+      price: 10,
     },
   ],
   warmers: [
@@ -260,6 +277,7 @@ const shopItems = {
       primaryImage: arm1,
       secondaryImage: arm2,
       onSale: false,
+      price: 30,
     },
     {
       category: "Warmers",
@@ -267,6 +285,7 @@ const shopItems = {
       primaryImage: neck1,
       secondaryImage: neck2,
       onSale: false,
+      price: 30,
     },
     {
       category: "Warmers",
@@ -274,6 +293,7 @@ const shopItems = {
       primaryImage: leg1,
       secondaryImage: leg1,
       onSale: false,
+      price: 30,
     },
     {
       category: "Warmers",
@@ -281,6 +301,7 @@ const shopItems = {
       primaryImage: knee1,
       secondaryImage: knee1,
       onSale: true,
+      price: 30,
     },
   ],
 };
