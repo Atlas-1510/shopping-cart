@@ -28,7 +28,6 @@ const FooterItem = styled.li`
 
 const LinkContainer = styled.div`
   display: flex;
-  width: 20rem;
   align-items: baseline;
   justify-content: space-around;
   color: white;
@@ -37,6 +36,7 @@ const LinkContainer = styled.div`
 const StyledLink = styled(Link)`
   text-decoration: none;
   color: white;
+  margin: 2rem;
 `;
 
 const StyledAiFillGithub = styled(AiFillGithub)`
@@ -56,7 +56,9 @@ function Footer() {
         <StyledLink to="/shop">
           <FooterItem>Shop</FooterItem>
         </StyledLink>
-        <FooterItem>Contact</FooterItem>
+        <StyledLink>
+          <FooterItem>Contact</FooterItem>
+        </StyledLink>
       </LinkContainer>
       <a href="https://github.com/Atlas-1510/shopping-cart">
         <IconContext.Provider value={{ color: "white", size: "3rem" }}>
