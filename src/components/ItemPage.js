@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
-import ButtonTwo from "./ButtonTwo";
+import SubmitButton from "./SubmitButton";
 
 const Container = styled.div`
   flex-grow: 1;
@@ -8,14 +8,21 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   background-color: #ececec;
+  margin: 2rem;
+
+  @media (max-width: 600px) {
+    flex-direction: column;
+  }
 `;
 
 const ImageHolder = styled.img`
-  width: 100%;
-  height: 600px;
+  width: 40vw;
+  height: auto;
   margin: 1rem;
-  padding: 1rem;
-  margin-left: 10rem;
+
+  @media (max-width: 600px) {
+    width: 90vw;
+  }
 `;
 
 const Form = styled.form`
@@ -23,12 +30,13 @@ const Form = styled.form`
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  width: 100%;
-  height: 600px;
+  width: 40vw;
   margin: 1rem;
-  margin-right: 10rem;
-  padding: 1rem;
   color: black;
+
+  @media (max-width: 600px) {
+    width: 90vw;
+  }
 `;
 
 const Title = styled.h2`
@@ -51,17 +59,37 @@ const StyledLi = styled.li`
 
 const StyledSelect = styled.select`
   font-size: 1rem;
+  line-height: 1.5;
 `;
 
-const StyledButton = styled(ButtonTwo)`
+const StyledButton = styled(SubmitButton)`
   margin: 1.5rem 0 0 0;
 `;
 
-function ItemPage({ item }) {
+function ItemPage({ item, setCart }) {
+  const [formState, setFormState] = useState({});
+  const handleChange = (e) => {
+    setFormState((prevState) => ({
+      ...prevState,
+      [e.target.name]: e.target.value,
+    }));
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setCart((prevCart) => [
+      ...prevCart,
+      {
+        item: item.title,
+        style: formState.style,
+        size: formState.size,
+        quantity: formState.quantity,
+      },
+    ]);
+  };
   return (
     <Container>
       <ImageHolder src={item.primaryImage} />
-      <Form>
+      <Form onSubmit={handleSubmit}>
         <Title>{item.title}</Title>
         <Price>${(Math.round(item.price * 100) / 100).toFixed(2)}</Price>
         <StyledP>
@@ -77,14 +105,32 @@ function ItemPage({ item }) {
         <label htmlFor="style">
           <h3>Style</h3>
         </label>
-        <StyledSelect name="style" id="style">
+        <StyledSelect
+          name="style"
+          id="style"
+          required
+          onChange={handleChange}
+          defaultValue=""
+        >
+          <option value="" disabled>
+            Choose style
+          </option>
           <option value="Male">Male</option>
           <option value="Female">Female</option>
         </StyledSelect>
         <label htmlFor="size">
           <h3>Size</h3>
         </label>
-        <StyledSelect name="size" id="size">
+        <StyledSelect
+          name="size"
+          id="size"
+          required
+          onChange={handleChange}
+          defaultValue=""
+        >
+          <option value="" disabled>
+            Choose style
+          </option>
           <option value="Small">Small</option>
           <option value="Medium">Medium</option>
           <option value="Large">Large</option>
@@ -99,14 +145,16 @@ function ItemPage({ item }) {
           name="quantity"
           min="0"
           placeholder="1"
+          required
+          onChange={handleChange}
         />
         <StyledButton
-          label="ADD TO CART"
           primaryColor="rgba(0,0,0,0.3)"
           secondaryColor="rgba(164,100,151,0.5)"
           primaryTextColor="white"
           secondaryTextColor="black"
-        />
+          value="ADD TO CART"
+        ></StyledButton>
       </Form>
     </Container>
   );

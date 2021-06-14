@@ -314,7 +314,7 @@ const getAllItems = () => {
   return allItems;
 };
 
-function Shop() {
+function Shop({ setCart }) {
   let { path, url } = useRouteMatch();
 
   return (
@@ -344,6 +344,7 @@ function Shop() {
                 ? shopItems[category.title]
                 : []
             }
+            setCart={setCart}
           />
         </Route>
       ))}

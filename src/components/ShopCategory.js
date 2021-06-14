@@ -25,7 +25,7 @@ const Grid = styled.div`
   }
 `;
 
-function ShopCategory({ category, items }) {
+function ShopCategory({ category, items, setCart }) {
   let { path, url } = useRouteMatch();
   return (
     <Switch>
@@ -48,7 +48,7 @@ function ShopCategory({ category, items }) {
           path={`${path}/${item.title.toLowerCase().replace(/\s+/g, "")}`}
           key={item.title}
         >
-          <ItemPage item={item} />
+          <ItemPage item={item} setCart={setCart} />
         </Route>
       ))}
     </Switch>

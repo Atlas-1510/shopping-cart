@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
@@ -20,6 +20,13 @@ const AppContainer = styled.div`
 `;
 
 function App() {
+  const [cart, setCart] = useState([]);
+
+  useEffect(() => {
+    console.log("UPDATING CART FROM APP");
+    console.log(cart);
+  }, [cart]);
+
   return (
     <AppContainer>
       <BrowserRouter>
@@ -30,7 +37,9 @@ function App() {
             path="/"
             render={(appStyles) => <Home appStyles={appStyles} />}
           />
-          <Route path="/shop" component={Shop} />
+          <Route path="/shop">
+            <Shop setCart={setCart} />
+          </Route>
           <Route exact path="/about" component={About} />
         </Switch>
         <Footer />

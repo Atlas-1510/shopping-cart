@@ -4,7 +4,7 @@ import { useSpring, animated } from "react-spring";
 
 // Note, used an li not a button element to comply with use of react-router-dom link
 
-const Button = styled(animated.li)`
+const Button = styled(animated.input)`
   background: ${(props) => props.primaryColor};
   border: none;
   padding: 0.5rem 1rem;
@@ -14,10 +14,11 @@ const Button = styled(animated.li)`
   list-style: none;
   z-index: 10;
   cursor: pointer;
+  value: "ADD TO CART";
 `;
 
-function ButtonTwo({
-  label,
+function SubmitButton({
+  value,
   primaryColor,
   secondaryColor,
   primaryTextColor,
@@ -46,10 +47,10 @@ function ButtonTwo({
         color: spring.textColor,
       }}
       className={className}
-    >
-      {label}
-    </Button>
+      value={value}
+      type="submit"
+    ></Button>
   );
 }
 
-export default ButtonTwo;
+export default SubmitButton;
