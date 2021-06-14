@@ -136,11 +136,18 @@ function Header(props) {
               </IconContext.Provider>
             </NavItem>
           </StyledLink>
-          <NavItem>
-            <IconContext.Provider value={{ size: "1.1rem" }}>
-              <StyledFaShoppingCart style={ShoppingCartIconStyles} />
-            </IconContext.Provider>
-          </NavItem>
+          <StyledLink
+            to="/cart"
+            activeStyle={{
+              color: "#ff356b",
+            }}
+          >
+            <NavItem>
+              <IconContext.Provider value={{ size: "1.1rem" }}>
+                <StyledFaShoppingCart style={ShoppingCartIconStyles} />
+              </IconContext.Provider>
+            </NavItem>
+          </StyledLink>
         </StyledMenu>
       </StyledHeader>
     );
@@ -150,36 +157,7 @@ function Header(props) {
         <StyledLink to="/">
           <Logo appStyles={props.appStyles}>CYCLING SHOP</Logo>
         </StyledLink>
-        <NavBar>
-          <List>
-            <StyledLink
-              to="/about"
-              activeStyle={{
-                color: "#ff356b",
-              }}
-            >
-              <NavItem>ABOUT</NavItem>
-            </StyledLink>
-            <StyledLink
-              to="/shop"
-              activeStyle={{
-                color: "#ff356b",
-              }}
-            >
-              <NavItem>
-                SHOP
-                <IconContext.Provider value={{ size: "1.5rem" }}>
-                  <MdExpandMore style={ExpandIconStyles} />
-                </IconContext.Provider>
-              </NavItem>
-            </StyledLink>
-            <NavItem>
-              <IconContext.Provider value={{ size: "1.1rem" }}>
-                <StyledFaShoppingCart style={ShoppingCartIconStyles} />
-              </IconContext.Provider>
-            </NavItem>
-          </List>
-        </NavBar>
+        <NavBar />
       </StyledHeader>
     );
   }
@@ -227,11 +205,18 @@ function NavBar() {
             </IconContext.Provider>
           </NavItem>
         </StyledLink>
-        <NavItem>
-          <IconContext.Provider value={{ size: "1.1rem" }}>
-            <StyledFaShoppingCart style={ShoppingCartIconStyles} />
-          </IconContext.Provider>
-        </NavItem>
+        <StyledLink
+          to="/cart"
+          activeStyle={{
+            color: "#ff356b",
+          }}
+        >
+          <NavItem>
+            <IconContext.Provider value={{ size: "1.1rem" }}>
+              <StyledFaShoppingCart style={ShoppingCartIconStyles} />
+            </IconContext.Provider>
+          </NavItem>
+        </StyledLink>
       </List>
     </StyledNavBar>
   );

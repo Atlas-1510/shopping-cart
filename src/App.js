@@ -7,6 +7,7 @@ import Home from "./components/Home";
 import About from "./components/About";
 import Footer from "./components/Footer";
 import Shop from "./components/Shop";
+import Cart from "./components/Cart";
 
 const appStyles = {
   primaryColor: "rgb(252, 252, 252)",
@@ -41,6 +42,7 @@ function App() {
             <Shop setCart={setCart} />
           </Route>
           <Route exact path="/about" component={About} />
+          <Route exact path="/cart" component={Cart} />
         </Switch>
         <Footer />
       </BrowserRouter>
