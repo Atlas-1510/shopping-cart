@@ -5,11 +5,11 @@ import ShopCategoryTile from "./ShopCategoryTile";
 // Tile images
 import ShopCategory from "./ShopCategory";
 import jerseys from "../img/categories/jerseys.jpg";
-import accessories from "../img/categories/accessories.jpg";
+
 import baselayers from "../img/categories/baselayers.jpg";
 import bibs from "../img/categories/bibs.jpg";
 import caps from "../img/categories/caps.jpg";
-import casual from "../img/categories/casual.jpg";
+
 import jackets from "../img/categories/jackets.jpg";
 import socks from "../img/categories/socks.jpg";
 import vests from "../img/categories/vests.jpg";
@@ -308,7 +308,7 @@ const shopItems = {
 
 const getAllItems = () => {
   const allItems = [];
-  for (const [key, value] of Object.entries(shopItems)) {
+  for (const value of Object.values(shopItems)) {
     value.forEach((item) => allItems.push(item));
   }
   return allItems;
