@@ -3,7 +3,6 @@ import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 import { IconContext } from "react-icons";
 import { FaShoppingCart } from "react-icons/fa";
-import { MdExpandMore } from "react-icons/md";
 import useWindowDimensions from "./useWindowDimensions";
 import { slide as Menu } from "react-burger-menu";
 
@@ -28,12 +27,6 @@ const NavItem = styled.li`
   align-items: center;
   position: relative;
 `;
-
-const ExpandIconStyles = {
-  marginLeft: "0.2rem",
-  position: "relative",
-  transform: "translate(0px, -1px)",
-};
 
 const ShoppingCartIconStyles = {
   position: "relative",
@@ -129,12 +122,7 @@ function Header(props) {
               color: "#ff356b",
             }}
           >
-            <NavItem>
-              SHOP
-              <IconContext.Provider value={{ size: "1.5rem" }}>
-                <MdExpandMore style={ExpandIconStyles} />
-              </IconContext.Provider>
-            </NavItem>
+            <NavItem>SHOP</NavItem>
           </StyledLink>
           <StyledLink
             to="/cart"
@@ -198,12 +186,7 @@ function NavBar() {
             color: "#ff356b",
           }}
         >
-          <NavItem>
-            SHOP
-            <IconContext.Provider value={{ size: "1.5rem" }}>
-              <MdExpandMore style={ExpandIconStyles} />
-            </IconContext.Provider>
-          </NavItem>
+          <NavItem>SHOP</NavItem>
         </StyledLink>
         <StyledLink
           to="/cart"
