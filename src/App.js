@@ -42,7 +42,7 @@ function App() {
             <Shop setCart={setCart} />
           </Route>
           <Route exact path="/about" component={About} />
-          <Route exact path="/cart" component={Cart} />
+          <Route exact path="/cart" render={() => <Cart cart={cart} />} />
         </Switch>
         <Footer />
       </BrowserRouter>

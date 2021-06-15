@@ -79,7 +79,8 @@ function ItemPage({ item, setCart }) {
     setCart((prevCart) => [
       ...prevCart,
       {
-        item: item.title,
+        title: item.title,
+        price: item.price,
         style: formState.style,
         size: formState.size,
         quantity: formState.quantity,

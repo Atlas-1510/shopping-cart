@@ -1,15 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 
-const Container = styled.div`
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-  ${"" /* justify-content: center; */}
-  align-items: center;
-  width: 90%;
-`;
-
 const SectionHeader = styled.h2`
   color: black;
   font-family: Tungsten;
@@ -17,39 +8,67 @@ const SectionHeader = styled.h2`
   margin: 2rem;
 `;
 
-const ItemGrid = styled.div`
+const Grid = styled.div`
   display: grid;
-  grid-template-columns: 25% 25% 25% 25%;
-  grid-template-rows: 1fr;
-  width: 100%;
+  grid-template-columns: 35% 15% 25% 25%;
+  grid-auto-rows: 50px;
+  width: 90%;
 `;
 
-const Red = styled.div`
-  width: 100vw;
-  background: red;
+const Blue = styled.div`
+  background: blue;
+`;
+
+const Yellow = styled.div`
+  background: yellow;
+`;
+
+const Green = styled.div`
+  background: green;
+`;
+
+const Pink = styled.div`
+  background: pink;
+`;
+
+function ItemGenerator({ item }) {
+  console.log(item);
+  return (
+    <>
+      <Blue>
+        {item.title} - {item.style}, {item.size}
+      </Blue>
+      <Yellow>{item.price}</Yellow>
+      <Green>{item.quantity}</Green>
+      <Pink>{item.price * item.quantity}</Pink>
+    </>
+  );
+}
+
+const Container = styled.div`
+  width: 100%;
+  flex-grow: 1;
+  background: Container;
   display: flex;
   flex-direction: column;
   align-items: center;
 `;
 
-function Item() {
-  return;
-}
-
-function Cart() {
+function Cart({ cart }) {
+  console.log(cart);
   return (
-    <Red>
+    <Container>
       <SectionHeader>CART</SectionHeader>
-    </Red>
-    // <Container>
-    //   <SectionHeader>CART</SectionHeader>
-    //   <ItemGrid>
-    //     <h3>Camo Long Sleeve Jersey - Men, XL</h3>
-    //     <h3>$160.00</h3>
-    //     <h3>1</h3>
-    //     <h3>$160.00</h3>
-    //   </ItemGrid>
-    // </Container>
+      <Grid>
+        <h3>Product</h3>
+        <h3>Price</h3>
+        <h3>Quantity</h3>
+        <h3>Subtotal</h3>
+        {cart.map((item) => (
+          <ItemGenerator item={item} key={item.title} />
+        ))}
+      </Grid>
+    </Container>
   );
 }
 

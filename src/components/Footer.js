@@ -56,7 +56,7 @@ function Footer() {
         <StyledLink to="/shop">
           <FooterItem>Shop</FooterItem>
         </StyledLink>
-        <StyledLink>
+        <StyledLink to="/contact">
           <FooterItem>Contact</FooterItem>
         </StyledLink>
       </LinkContainer>
