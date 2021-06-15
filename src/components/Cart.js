@@ -35,7 +35,7 @@ const ImageHolder = styled.img`
   height: auto;
 `;
 
-function ItemGenerator({ item }) {
+function ItemGenerator({ item, removeCartItem }) {
   console.log(item);
   return (
     <>
@@ -46,7 +46,7 @@ function ItemGenerator({ item }) {
       <ItemDetail>${item.price}</ItemDetail>
       <ItemDetail>{item.quantity}</ItemDetail>
       <ItemDetail>${item.price * item.quantity}</ItemDetail>
-      <button>Remove</button>
+      <button onClick={() => removeCartItem(item.id)}>Remove</button>
     </>
   );
 }
@@ -60,7 +60,7 @@ const Container = styled.div`
   align-items: center;
 `;
 
-function Cart({ cart }) {
+function Cart({ cart, removeCartItem }) {
   console.log(cart);
   return (
     <Container>
@@ -73,7 +73,11 @@ function Cart({ cart }) {
         <h3>Subtotal</h3>
         <h3></h3>
         {cart.map((item) => (
-          <ItemGenerator item={item} key={item.title} />
+          <ItemGenerator
+            item={item}
+            key={item.title}
+            removeCartItem={removeCartItem}
+          />
         ))}
       </Grid>
     </Container>

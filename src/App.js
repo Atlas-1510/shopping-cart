@@ -28,6 +28,10 @@ function App() {
     console.log(cart);
   }, [cart]);
 
+  const removeCartItem = (id) => {
+    const newCart = cart.filter((item) => item.id !== id);
+    setCart(newCart);
+  };
   return (
     <AppContainer>
       <BrowserRouter>
@@ -42,7 +46,11 @@ function App() {
             <Shop setCart={setCart} />
           </Route>
           <Route exact path="/about" component={About} />
-          <Route exact path="/cart" render={() => <Cart cart={cart} />} />
+          <Route
+            exact
+            path="/cart"
+            render={() => <Cart cart={cart} removeCartItem={removeCartItem} />}
+          />
         </Switch>
         <Footer />
       </BrowserRouter>

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import { v4 as uuidv4 } from "uuid";
 import SubmitButton from "./SubmitButton";
 
 const Container = styled.div`
@@ -79,6 +80,7 @@ function ItemPage({ item, setCart }) {
     setCart((prevCart) => [
       ...prevCart,
       {
+        id: uuidv4(),
         title: item.title,
         price: item.price,
         style: formState.style,
