@@ -39,7 +39,7 @@ function App() {
         <Switch>
           <Route
             exact
-            path="/"
+            path="/shopping-cart"
             render={(appStyles) => <Home appStyles={appStyles} />}
           />
           <Route path="/shop">
