@@ -2,6 +2,8 @@
 
 This is a mock up of a shopping cart web application, as part of The Odin Project syllabus. Images and inspiration come from the [Knights of Suburbia](https://knightsofsuburbia.com) cycling website.
 
+[View the project here](https://atlas-1510.github.io/shopping-cart)
+
 ## Packages
 
 - [styled-components](https://styled-components.com/)
