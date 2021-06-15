@@ -19,6 +19,7 @@ const ImageHolder = styled.img`
   width: 40vw;
   height: auto;
   margin: 1rem;
+  max-width: 600px;
 
   @media (max-width: 600px) {
     width: 90vw;
