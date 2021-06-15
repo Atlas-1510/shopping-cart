@@ -7,15 +7,16 @@ import { Link } from "react-router-dom";
 const Container = styled.div`
   background: black;
   padding: 0 1rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
 `;
 
 const Logo = styled.h2`
   font-family: Tungsten;
   font-size: 2rem;
   color: white;
+  justify-self: start;
 `;
 
 const FooterItem = styled.li`
@@ -28,9 +29,10 @@ const FooterItem = styled.li`
 
 const LinkContainer = styled.div`
   display: flex;
-  align-items: baseline;
-  justify-content: space-around;
+  justify-self: center;
+  justify-content: center;
   color: white;
+  width: 50%;
 `;
 
 const StyledLink = styled(Link)`
@@ -45,6 +47,11 @@ const StyledAiFillGithub = styled(AiFillGithub)`
   }
 `;
 
+const A = styled.a`
+  justify-self: end;
+  align-self: center;
+`;
+
 function Footer() {
   return (
     <Container>
@@ -56,15 +63,12 @@ function Footer() {
         <StyledLink to="/shop">
           <FooterItem>Shop</FooterItem>
         </StyledLink>
-        <StyledLink to="/contact">
-          <FooterItem>Contact</FooterItem>
-        </StyledLink>
       </LinkContainer>
-      <a href="https://github.com/Atlas-1510/shopping-cart">
+      <A href="https://github.com/Atlas-1510/shopping-cart">
         <IconContext.Provider value={{ color: "white", size: "3rem" }}>
           <StyledAiFillGithub />
         </IconContext.Provider>
-      </a>
+      </A>
     </Container>
   );
 }
