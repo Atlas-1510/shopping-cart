@@ -8,6 +8,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  background: rgb(252, 252, 252);
 `;
 
 const SectionHeader = styled.h2`

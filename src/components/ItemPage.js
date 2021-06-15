@@ -9,7 +9,6 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   background-color: #ececec;
-  margin: 2rem;
 
   @media (max-width: 600px) {
     flex-direction: column;

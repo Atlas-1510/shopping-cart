@@ -104,7 +104,7 @@ function Header(props) {
   if (width < 600) {
     return (
       <StyledHeader appStyles={props.appStyles}>
-        <StyledLink to="/">
+        <StyledLink to="/shopping-cart">
           <Logo appStyles={props.appStyles}>CYCLING SHOP</Logo>
         </StyledLink>
         <StyledMenu styles={hamburgerStyles} right>
@@ -142,7 +142,7 @@ function Header(props) {
   } else {
     return (
       <StyledHeader appStyles={props.appStyles}>
-        <StyledLink to="/">
+        <StyledLink to="/shopping-cart">
           <Logo appStyles={props.appStyles}>CYCLING SHOP</Logo>
         </StyledLink>
         <NavBar />
