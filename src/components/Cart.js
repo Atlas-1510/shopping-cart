@@ -10,37 +10,43 @@ const SectionHeader = styled.h2`
 
 const Grid = styled.div`
   display: grid;
-  grid-template-columns: 35% 15% 25% 25%;
-  grid-auto-rows: 50px;
+  grid-template-columns: 15% 35% 10% 15% 15% 10%;
+  grid-auto-rows: 75px;
   width: 90%;
+  justify-items: center;
+  align-items: center;
 `;
 
-const Blue = styled.div`
-  background: blue;
+const Product = styled.div`
+  color: #ff356b;
+  display: flex;
+  align-items: center;
+  font-weight: bold;
 `;
 
-const Yellow = styled.div`
-  background: yellow;
+const ItemDetail = styled.div`
+  display: flex;
+  align-items: center;
+  font-weight: bold;
 `;
 
-const Green = styled.div`
-  background: green;
-`;
-
-const Pink = styled.div`
-  background: pink;
+const ImageHolder = styled.img`
+  width: 75px;
+  height: auto;
 `;
 
 function ItemGenerator({ item }) {
   console.log(item);
   return (
     <>
-      <Blue>
+      <ImageHolder src={item.image}></ImageHolder>
+      <Product>
         {item.title} - {item.style}, {item.size}
-      </Blue>
-      <Yellow>{item.price}</Yellow>
-      <Green>{item.quantity}</Green>
-      <Pink>{item.price * item.quantity}</Pink>
+      </Product>
+      <ItemDetail>${item.price}</ItemDetail>
+      <ItemDetail>{item.quantity}</ItemDetail>
+      <ItemDetail>${item.price * item.quantity}</ItemDetail>
+      <button>Remove</button>
     </>
   );
 }
@@ -60,10 +66,12 @@ function Cart({ cart }) {
     <Container>
       <SectionHeader>CART</SectionHeader>
       <Grid>
+        <h3></h3>
         <h3>Product</h3>
         <h3>Price</h3>
         <h3>Quantity</h3>
         <h3>Subtotal</h3>
+        <h3></h3>
         {cart.map((item) => (
           <ItemGenerator item={item} key={item.title} />
         ))}

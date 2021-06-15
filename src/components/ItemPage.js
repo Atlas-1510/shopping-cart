@@ -84,6 +84,7 @@ function ItemPage({ item, setCart }) {
         style: formState.style,
         size: formState.size,
         quantity: formState.quantity,
+        image: item.primaryImage,
       },
     ]);
   };
