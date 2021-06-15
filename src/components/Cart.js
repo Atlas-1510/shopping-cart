@@ -46,7 +46,9 @@ function Cart({ cart, removeCartItem }) {
         secondaryColor="black"
         primaryTextColor="black"
         secondaryTextColor="white"
-        onClick={() => {}}
+        onClick={() => {
+          alert("This ability has not been added.");
+        }}
       />
     </Container>
   );

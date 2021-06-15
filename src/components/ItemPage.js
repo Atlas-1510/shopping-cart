@@ -89,6 +89,7 @@ function ItemPage({ item, setCart }) {
         image: item.primaryImage,
       },
     ]);
+    alert("Item added to your cart!");
   };
   return (
     <Container>
